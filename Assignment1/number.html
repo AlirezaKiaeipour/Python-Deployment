@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Number</title>
+</head>
+<body>
+    <script>
+        const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+        };
+
+        fetch("http://numbersapi.com/21", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+    </script>
+</body>
+</html>

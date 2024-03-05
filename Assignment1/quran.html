@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>quran</title>
+</head>
+<body>
+    <script>
+        const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+        };
+
+        fetch("http://api.alquran.cloud/v1/surah/113", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+    </script>
+</body>
+</html>
