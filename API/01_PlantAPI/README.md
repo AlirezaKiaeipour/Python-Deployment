@@ -18,7 +18,7 @@ PlantNet | **https://my.plantnet.org/doc/openapi** |
   ```
   $ pip install requirements.txt
   
-  python plant.py [--input_text INPUT]
+  python plant.py [--input_text 'INPUT']
   
   ```
       
