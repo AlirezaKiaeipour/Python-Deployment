@@ -1,6 +1,6 @@
 # PlantNet
 
-### Plant identification using generated plant image
+**Plant identification using generated plant image**
  
   
 ## API
