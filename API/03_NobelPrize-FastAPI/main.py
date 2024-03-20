@@ -8,7 +8,7 @@ app = FastAPI()
 data = data = json.load(open("nobel.json"))
 
 @app.get("/")
-def read_nobel():
+def read_root():
     return {"Help:":"https://python-deployment-lwor.onrender.com/docs"}
 
 @app.get("/nobel")
