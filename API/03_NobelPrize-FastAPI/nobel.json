@@ -1,0 +1,507 @@
+{
+    "nobel_info":"Alfred Nobel had a vision of a better world. He believed that people are capable of helping to improve society through knowledge, science and humanism. This is why he created a prize that would reward the discoveries that have conferred the greatest benefit to humankind. Since 1901, the Nobel Prize has been awarded in the fields of physics, chemistry, physiology or medicine, literature and peace, while a memorial prize in economic sciences was added in 1968. The economic foundations for the Nobel Prize were laid in 1895, when Alfred Nobel signed his last will and left much of his wealth to the establishment of a prize and the subsequent Nobel Foundation, which is tasked with a mission to manage his fortune and has ultimate responsibility for fulfilling the intentions of Nobel’s will. In accordance with the instructions Nobel left through his will, various independent prize-awarding institutions have selected Nobel Laureates in each prize category for more than a century.",
+    "physics":
+    [
+        {   "Year": 2023,
+            "Name":"Pierre Agostini",
+            "Born": "23 July 1941",
+            "Description":"Pierre Agostini; born 23 July 1941 is a French experimental physicist and Emeritus professor at the Ohio State University in the United States, known for his pioneering work in strong-field laser physics and attosecond science. He is especially known for the observation of above-threshold ionization and the invention of the reconstruction of attosecond beating by interference of two-photon transitions (RABBITT) for characterization of attosecond light pulses. He was jointly awarded the 2023 Nobel Prize in Physics."
+        },
+        {   "Year": 2023,
+            "Name":"Ferenc Krausz",
+            "Born": "17 May 1962",
+            "Description":"Ferenc Krausz; born 17 May 1962 is a Hungarian physicist working in attosecond science. He is a director at the Max Planck Institute of Quantum Optics and a professor of experimental physics at the Ludwig Maximilian University of Munich in Germany. His research team has generated and measured the first attosecond light pulse and used it for capturing electrons' motion inside atoms, marking the birth of attophysics.In 2023, jointly with Pierre Agostini and Anne L'Huillier, he was awarded the Nobel Prize in Physics."
+        },
+        {   "Year": 2023,
+            "Name":"Anne L'Huillier",
+            "Born": "16 August 1958",
+            "Description":"Anne Geneviève L'Huillier; born 16 August 1958 is a French physicist and professor of atomic physics at Lund University in Sweden.She leads an attosecond physics group which studies the movements of electrons in real time, which is used to understand the chemical reactions on the atomic level. Her experimental and theoretical research are credited with laying the foundation for the field of attochemistry. In 2003 she and her group beat the world record for the shortest laser pulse, of 170 attoseconds."
+        },
+        {   "Year": 2022,
+            "Name":"Alain Aspect",
+            "Born": "15 June 1947",
+            "Description":"Alain Aspect born 15 June 1947; is a French physicist noted for his experimental work on quantum entanglement. Aspect was awarded the 2022 Nobel Prize in Physics, jointly with John Clauser and Anton Zeilinger, 'for experiments with entangled photons, establishing the violation of Bell inequalities and pioneering quantum information science'"
+        },
+        {   "Year": 2022,
+            "Name":"John Clauser",
+            "Born": "1 December 1942",
+            "Description":"John Francis Clauser born December 1, 1942; is an American theoretical and experimental physicist known for contributions to the foundations of quantum mechanics, in particular the Clauser–Horne–Shimony–Holt inequality. Clauser was awarded the 2022 Nobel Prize in Physics, jointly with Alain Aspect and Anton Zeilinger 'for experiments with entangled photons, establishing the violation of Bell inequalities and pioneering quantum information science'"
+        },
+        {   "Year": 2022,
+            "Name":"Anton Zeilinger",
+            "Born": "20 May 1945",
+            "Description":"Anton Zeilinger born 20 May 1945; is an Austrian quantum physicist and Nobel laureate in physics of 2022. Zeilinger is professor of physics emeritus at the University of Vienna and senior scientist at the Institute for Quantum Optics and Quantum Information of the Austrian Academy of Sciences. Most of his research concerns the fundamental aspects and applications of quantum entanglement."
+        },
+        {   "Year": 2021,
+            "Name":"Giorgio Parisi",
+            "Born": "4 August 1948",
+            "Description":"Giorgio Parisi Cavaliere di Gran Croce OMRI (born 4 August 1948) is an Italian theoretical physicist, whose research has focused on quantum field theory, statistical mechanics and complex systems. His best known contributions are the QCD evolution equations for parton densities, obtained with Guido Altarelli, known as the Altarelli–Parisi or DGLAP equations, the exact solution of the Sherrington–Kirkpatrick model of spin glasses, the Kardar–Parisi–Zhang equation describing dynamic scaling of growing interfaces, and the study of whirling flocks of birds. He was awarded the 2021 Nobel Prize in Physics jointly with Klaus Hasselmann and Syukuro Manabe for groundbreaking contributions to theory of complex systems, in particular 'for the discovery of the interplay of disorder and fluctuations in physical systems from atomic to planetary scales'"
+        },
+        {   "Year": 2021,
+            "Name":"Klaus Hasselmann",
+            "Born": "25 October 1931",
+            "Description":"Klaus Ferdinand Hasselmann born 25 October 1931; is a German oceanographer and climate modeller. He is Professor Emeritus at the University of Hamburg and former Director of the Max Planck Institute for Meteorology. He was awarded the 2021 Nobel Prize in Physics jointly with Syukuro Manabe and Giorgio Parisi."
+        },
+        {   "Year": 2021,
+            "Name":"Syukuro Manabe",
+            "Born": "21 September 1931",
+            "Description":"Syukuro Suki Manabe born 21 September 1931; is a Japanese–American meteorologist and climatologist who pioneered the use of computers to simulate global climate change and natural climate variations. He was awarded the 2021 Nobel Prize in Physics jointly with Klaus Hasselmann and Giorgio Parisi, for his contributions to the physical modeling of Earth's climate, quantifying its variability, and predictions of climate change."
+        },
+        {   "Year": 2020,
+            "Name":"Roger Penrose",
+            "Born": "8 August 1931",
+            "Description":"Sir Roger Penrose OM FRS HonFInstP (born 8 August 1931) is an English mathematician, mathematical physicist, philosopher of science and Nobel Laureate in Physics. He is Emeritus Rouse Ball Professor of Mathematics in the University of Oxford, an emeritus fellow of Wadham College, Oxford, and an honorary fellow of St John's College, Cambridge, and University College London."
+        },
+        {   "Year": 2020,
+            "Name":"Reinhard Genzel",
+            "Born": "24 March 1952",
+            "Description":"Reinhard Genzel ForMemRS born 24 March 1952; is a German astrophysicist, co-director of the Max Planck Institute for Extraterrestrial Physics, a professor at LMU and an emeritus professor at the University of California, Berkeley. He was awarded the 2020 Nobel Prize in Physics 'for the discovery of a supermassive compact object at the centre of our galaxy', which he shared with Andrea Ghez and Roger Penrose. In a 2021 interview given to Federal University of Pará in Brazil, Genzel recalls his journey as a physicist; the influence of his father, Ludwig Genzel [de]; his experiences working with Charles H. Townes; and more"
+        },
+        {   "Year": 2020,
+            "Name":"Andrea M. Ghez",
+            "Born": "June 16, 1965",
+            "Description":"Andrea Mia Ghez (born June 16, 1965) is an American astrophysicist, Nobel laureate, and professor in the Department of Physics and Astronomy and the Lauren B. Leichtman & Arthur E. Levine chair in Astrophysics, at the University of California, Los Angeles. Her research focuses on the center of the Milky Way galaxy."
+        },
+        {   "Year": 2019,
+            "Name":"Jim Peebles",
+            "Born": "April 25, 1935",
+            "Description":"Phillip James Edwin Peebles CC OM FRS (born April 25, 1935) is a Canadian-American astrophysicist, astronomer, and theoretical cosmologist who is currently the Albert Einstein Professor in Science, emeritus, at Princeton University. He is widely regarded as one of the world's leading theoretical cosmologists in the period since 1970, with major theoretical contributions to primordial nucleosynthesis, dark matter, the cosmic microwave background, and structure formation"
+        },
+        {   "Year": 2019,
+            "Name":"Michel Mayor",
+            "Born": "12 January 1942",
+            "Description":"Michel Gustave Édouard Mayor born 12 January 1942; is a Swiss astrophysicist and professor emeritus at the University of Geneva's Department of Astronomy. He formally retired in 2007, but remains active as a researcher at the Observatory of Geneva. He is co-laureate of the 2019 Nobel Prize in Physics along with Jim Peebles and Didier Queloz, and the winner of the 2010 Viktor Ambartsumian International Prize and the 2015 Kyoto Prize."
+        },
+        {   "Year": 2019,
+            "Name":"Didier Queloz",
+            "Born": "23 February 1966",
+            "Description":"Didier Patrick Queloz born 23 February 1966; is a Swiss astronomer. He is the Jacksonian Professor of Natural Philosophy at the University of Cambridge, where he is also a fellow of Trinity College, Cambridge, as well as a professor at the University of Geneva. Together with Michel Mayor in 1995, he discovered 51 Pegasi b, the first extrasolar planet orbiting a Sun-like star, 51 Pegasi. For this discovery, he shared the 2019 Nobel Prize in Physics with Mayor and Jim Peebles. In 2021, he was announced as the founding director of the Center for the Origin and Prevalence of Life at ETH Zurich."
+        },
+        {   "Year": 2018,
+            "Name":"Arthur Ashkin",
+            "Born": "2 September 1922",
+            "Description":"Arthur Ashkin 2 September 1922; was an American scientist and Nobel laureate who worked at Bell Laboratories and Lucent Technologies. Ashkin has been considered by many as the father of optical tweezers, for which he was awarded the Nobel Prize in Physics 2018 at age 96, becoming the oldest Nobel laureate until 2019 when John B. Goodenough was awarded at 97. He resided in Rumson, New Jersey"
+        },
+        {   "Year": 2018,
+            "Name":"Gérard Mourou",
+            "Born": "22 June 1944",
+            "Description":"Gérard Albert Mourou born 22 June 1944) is a French scientist and pioneer in the field of electrical engineering and lasers. He was awarded a Nobel Prize in Physics in 2018, along with Donna Strickland, for the invention of chirped pulse amplification, a technique later used to create ultrashort-pulse, very high-intensity (petawatt) laser pulses."
+        },
+        {   "Year": 2018,
+            "Name":"Donna Strickland",
+            "Born": "27 May 1959",
+            "Description":"Donna Theo Strickland (born 27 May 1959) is a Canadian optical physicist and pioneer in the field of pulsed lasers. She was awarded the Nobel Prize in Physics in 2018, together with Gérard Mourou, for the practical implementation of chirped pulse amplification. She is a professor at the University of Waterloo in Ontario, Canada."
+        },
+        {   "Year": 2017,
+            "Name":"Rainer Weiss",
+            "Born": "29 September 1932",
+            "Description":"Rainer Weiss (born September 29, 1932) is a German-born American physicist, known for his contributions in gravitational physics and astrophysics. He is a professor of physics emeritus at MIT and an adjunct professor at LSU. He is best known for inventing the laser interferometric technique which is the basic operation of LIGO. He was Chair of the COBE Science Working Group."
+        },
+        {   "Year": 2017,
+            "Name":"Barry Barish",
+            "Born": "27 January 1936",
+            "Description":"Barry Clark Barish (born January 27, 1936) is an American experimental physicist and Nobel Laureate. He is a Linde Professor of Physics, emeritus at California Institute of Technology and a leading expert on gravitational waves.In 2017, Barish was awarded the Nobel Prize in Physics along with Rainer Weiss and Kip Thorne 'for decisive contributions to the LIGO detector and the observation of gravitational waves'. He said, 'I didn't know if I would succeed. I was afraid I would fail, but because I tried, I had a breakthrough.'"
+        },
+        {   "Year": 2017,
+            "Name":"Kip Thorne",
+            "Born": "1 June 1940",
+            "Description":"Kip Stephen Thorne (born June 1, 1940) is an American theoretical physicist known for his contributions in gravitational physics and astrophysics. Along with Rainer Weiss and Barry C. Barish, he was awarded the 2017 Nobel Prize in Physics for his contributions to the LIGO detector and the observation of gravitational waves."
+        },
+        {   "Year": 2016,
+            "Name":"David J. Thouless",
+            "Born": "21 September 1934",
+            "Description":"David James Thouless (21 September 1934) was a British condensed-matter physicist. He was the winner of the 1990 Wolf Prize and a laureate of the 2016 Nobel Prize for physics along with F. Duncan M. Haldane and J. Michael Kosterlitz for theoretical discoveries of topological phase transitions and topological phases of matter."
+        },
+        {   "Year": 2016,
+            "Name":"Duncan Haldane",
+            "Born": "14 September 1951",
+            "Description":"Frederick Duncan Michael Haldane (born 14 September 1951) known as F. Duncan Haldane, is a British-born physicist who is currently the Sherman Fairchild University Professor of Physics at Princeton University. He is a co-recipient of the 2016 Nobel Prize in Physics, along with David J. Thouless and J. Michael Kosterlitz."
+        },
+        {   "Year": 2016,
+            "Name":"J. Michael Kosterlitz",
+            "Born": "22 June 1943",
+            "Description":"John Michael Kosterlitz (born June 22, 1943) is a Scottish-American physicist. He is a professor of physics at Brown University and the son of biochemist Hans Kosterlitz. He was awarded the 2016 Nobel Prize in physics along with David Thouless and Duncan Haldane for work on condensed matter physics."
+        },
+        {   "Year": 2015,
+            "Name":"Takaaki Kajita",
+            "Born": "9 March 1959",
+            "Description":"Takaaki Kajita (born 9 March 1959) is a Japanese physicist, known for neutrino experiments at the Kamioka Observatory – Kamiokande and its successor, Super-Kamiokande. In 2015, he was awarded the Nobel Prize in Physics jointly with Canadian physicist Arthur B. McDonald. On 1 October 2020, he became the president of the Science Council of Japan."
+        },
+        {   "Year": 2015,
+            "Name":"Arthur B. McDonald",
+            "Born": "29 August 1943",
+            "Description":"Arthur Bruce McDonald, CC OOnt ONS FRS FRSC P.Eng (born August 29, 1943) is a Canadian astrophysicist. McDonald is the director of the Sudbury Neutrino Observatory Collaboration and held the Gordon and Patricia Gray Chair in Particle Astrophysics at Queen's University in Kingston, Ontario from 2006 to 2013. He was awarded the 2015 Nobel Prize in Physics jointly with Japanese physicist Takaaki Kajita."
+        },
+        {   "Year": 2014,
+            "Name":"Isamu Akasaki",
+            "Born": "30 January 1929",
+            "Description":"Isamu Akasaki (January 30, 1929) was a Japanese engineer and physicist, specializing in the field of semiconductor technology and Nobel Prize laureate, best known for inventing the bright gallium nitride (GaN) p-n junction blue LED in 1989 and subsequently the high-brightness GaN blue LED as well."
+        },
+        {   "Year": 2014,
+            "Name":"Hiroshi Amano",
+            "Born": "11 September 1960",
+            "Description":"Hiroshi Amano (born September 11, 1960) is a Japanese physicist, engineer and inventor specializing in the field of semiconductor technology. For his work he was awarded the 2014 Nobel Prize in Physics together with Isamu Akasaki and Shuji Nakamura for 'the invention of efficient blue light-emitting diodes which has enabled bright and energy-saving white light sources'"
+        },
+        {   "Year": 2014,
+            "Name":"Shuji Nakamura",
+            "Born": "22 May 1954",
+            "Description":"Shuji Nakamura (born May 22, 1954) is a Japanese-American electronic engineer and inventor of the blue LED, a major breakthrough in lighting technology. Nakamura specializes in the field of semiconductor technology, and he is a professor of materials science at the College of Engineering of the University of California, Santa Barbara (UCSB)."
+        },
+        {   "Year": 2013,
+            "Name":"François Englert",
+            "Born": "6 November 1932",
+            "Description":"François, Baron Englert (born 6 November 1932) is a Belgian theoretical physicist and 2013 Nobel Prize laureate."
+        },
+        {   "Year": 2013,
+            "Name":"Peter Higgs",
+            "Born": "29 May 1929",
+            "Description":"Peter Ware Higgs CH FRS FRSE HonFInstP (born 29 May 1929) is a British theoretical physicist, Emeritus Professor at the University of Edinburgh, and Nobel Prize laureate for his work on the mass of subatomic particles."
+        }
+    ],
+    "chemistry":
+    [
+        {   "Year": 2023,
+            "Name":"Moungi Bawendi",
+            "Born": "15 March 1961",
+            "Description":"Moungi Bawendi (born 15 March 1961) is an American–Tunisian–French chemist. He is currently the Lester Wolfe Professor at the Massachusetts Institute of Technology. Bawendi is known for his advances in the chemical production of high-quality quantum dots. In 2023 he was awarded the Nobel Prize in Chemistry."
+        },
+        {   "Year": 2023,
+            "Name":"Louis E. Brus",
+            "Born": "10 August 1943",
+            "Description":"Louis Edward Brus (born August 10, 1943) is an American chemist, and currently the Samuel Latham Mitchell Professor of Chemistry at Columbia University. He is the co-discoverer of the colloidal semi-conductor nanocrystals known as quantum dots. In 2023, he was awarded the Nobel Prize in Chemistry."
+        },
+        {   "Year": 2023,
+            "Name":"Alexey Ekimov",
+            "Born": "1945",
+            "Description":"Alexey Ekimov or Aleksey Yekimov (born 1945) is a Russian solid state physicist and a pioneer in nanomaterials research. He discovered the semiconductor nanocrystals known as quantum dots in 1981, while working at the Vavilov State Optical Institute. In 2023, he was awarded the Nobel Prize in Chemistry for this discovery."
+        },
+        {   "Year": 2022,
+            "Name":"Carolyn Bertozzi",
+            "Born": "10 October 1966",
+            "Description":"Carolyn Ruth Bertozzi (born October 10, 1966) is an American chemist and Nobel laureate, known for her wide-ranging work spanning both chemistry and biology. She coined the term 'bioorthogonal chemistry' for chemical reactions compatible with living systems. Her recent efforts include synthesis of chemical tools to study cell surface sugars called glycans and how they affect diseases such as cancer, inflammation, and viral infections like COVID-19. At Stanford University, she holds the Anne T. and Robert M. Bass Professorship in the School of Humanities and Sciences. Bertozzi is also an Investigator at the Howard Hughes Medical Institute (HHMI) and is the former director of the Molecular Foundry, a nanoscience research center at Lawrence Berkeley National Laboratory."
+        },
+        {   "Year": 2022,
+            "Name":"Morten P. Meldal",
+            "Born": "16 January 1954",
+            "Description":"Morten Peter Meldal (born 16 January 1954) is a Danish chemist and Nobel laureate. He is a professor of chemistry at the University of Copenhagen in Copenhagen, Denmark. He is best known for developing the CuAAC-click reaction, concurrently with but independent of Valery V. Fokin and K. Barry Sharpless."
+        },
+        {   "Year": 2022,
+            "Name":"Karl Barry Sharpless",
+            "Born": "28 April 1941",
+            "Description":"Karl Barry Sharpless (born April 28, 1941) is an American stereochemist. He is a two-time Nobel laureate in Chemistry known for his work on stereoselective reactions and click chemistry."
+        },
+        {   "Year": 2021,
+            "Name":"Benjamin List",
+            "Born": "11 January 1968",
+            "Description":"Born to an upper-middle-class family of scientists and artists in Frankfurt, List is a great-grandson of the cardiologist Franz Volhard and a 2nd great-grandson of the chemist Jacob Volhard. His aunt, the 1995 Nobel laureate in medicine Christiane Nüsslein-Volhard, is the sister of his mother, architect Heidi List. At age three, his parents divorced"
+        },
+        {   "Year": 2021,
+            "Name":"David MacMillan",
+            "Born": "16 March 1968",
+            "Description":"Sir David William Cross MacMillan FRS FRSE (born 16 March 1968) is a Scottish chemist and the James S. McDonnell Distinguished University Professor of Chemistry at Princeton University, where he was also the chair of the Department of Chemistry from 2010 to 2015. He shared the 2021 Nobel Prize in Chemistry with Benjamin List 'for the development of asymmetric organocatalysis'. MacMillan used his share of the $1.14 million prize to establish the May and Billy MacMillan Foundation."
+        },
+        {   "Year": 2020,
+            "Name":"Emmanuelle Charpentier",
+            "Born": "11 December 1968",
+            "Description":"Emmanuelle Marie Charpentier (born 11 December 1968) is a French professor and researcher in microbiology, genetics, and biochemistry. As of 2015, she has been a director at the Max Planck Institute for Infection Biology in Berlin. In 2018, she founded an independent research institute, the Max Planck Unit for the Science of Pathogens. In 2020, Charpentier and American biochemist Jennifer Doudna of the University of California, Berkeley, were awarded the Nobel Prize in Chemistry 'for the development of a method for genome editing' (through CRISPR). This was the first science Nobel Prize ever won by two women only"
+        },
+        {   "Year": 2020,
+            "Name":"Jennifer Doudna",
+            "Born": "19 February 1964",
+            "Description":"Jennifer Anne Doudna ForMemRS (born February 19, 1964) is an American chemist who has done pioneering work in CRISPR gene editing, and made other fundamental contributions in biochemistry and genetics. Doudna was one of the first women to share a Nobel in the sciences. She received the 2020 Nobel Prize in Chemistry, with Emmanuelle Charpentier, 'for the development of a method for genome editing.'' She is the Li Ka Shing Chancellor's Chair Professor in the department of chemistry and the department of molecular and cell biology at the University of California, Berkeley. She has been an investigator with the Howard Hughes Medical Institute since 1997"
+        },
+        {   "Year": 2019,
+            "Name":"John B. Goodenough",
+            "Born": "25 July 1922",
+            "Description":"John Bannister Goodenough ( July 25, 1922 – June 25, 2023) was an American materials scientist, a solid-state physicist, and a Nobel laureate in chemistry. From 1996 he was a professor of Mechanical, Materials Science, and Electrical Engineering at the University of Texas at Austin. He is credited with identifying the Goodenough–Kanamori rules of the sign of the magnetic superexchange in materials, with developing materials for computer random-access memory and with inventing cathode materials for lithium-ion batteries."
+        },
+        {   "Year": 2019,
+            "Name":"M. Stanley Whittingham",
+            "Born": "22 December 1941",
+            "Description":"Michael Stanley Whittingham (born 22 December 1941) is a British-American chemist. He is a professor of chemistry and director of both the Institute for Materials Research and the Materials Science and Engineering program at Binghamton University, State University of New York. He also serves as director of the Northeastern Center for Chemical Energy Storage (NECCES) of the U.S. Department of Energy at Binghamton. He was awarded the Nobel Prize in Chemistry in 2019 alongside Akira Yoshino and John B. Goodenough"
+        },
+        {   "Year": 2019,
+            "Name":"Akira Yoshino",
+            "Born": "30 January 1948",
+            "Description":"Akira Yoshino (born 30 January 1948) is a Japanese chemist. He is a fellow of Asahi Kasei Corporation and a professor at Meijo University in Nagoya. He created the first safe, production-viable lithium-ion battery, which became used widely in cellular phones and notebook computers. Yoshino was awarded the Nobel Prize in Chemistry in 2019 alongside M. Stanley Whittingham and John B. Goodenough"
+        },
+        {   "Year": 2018,
+            "Name":"Frances Arnold",
+            "Born": "25 July 1956",
+            "Description":"Frances Hamilton Arnold (born July 25, 1956) is an American chemical engineer and Nobel Laureate. She is the Linus Pauling Professor of Chemical Engineering, Bioengineering and Biochemistry at the California Institute of Technology (Caltech). In 2018, she was awarded the Nobel Prize in Chemistry for pioneering the use of directed evolution to engineer enzymes"
+        },
+        {   "Year": 2018,
+            "Name":"George Smith",
+            "Born": "10 March 1941",
+            "Description":"George Pearson Smith (born 10 March 1941) is an American biologist and Nobel laureate. He is a Curators' Distinguished Professor Emeritus of Biological Sciences at the University of Missouri in Columbia, Missouri, US."
+        },
+        {   "Year": 2018,
+            "Name":"Gregory Winter",
+            "Born": "14 April 1951",
+            "Description":"Sir Gregory Paul Winter CBE FRS FMedSci (born 14 April 1951) is a Nobel Prize-winning English molecular biologist best known for his work on the therapeutic use of monoclonal antibodies. His research career has been based almost entirely at the MRC Laboratory of Molecular Biology and the MRC Centre for Protein Engineering, in Cambridge, England."
+        },
+        {   "Year": 2017,
+            "Name":"Jacques Dubochet",
+            "Born": "8 June 1942",
+            "Description":"Jacques Dubochet (born 8 June 1942) is a retired Swiss biophysicist. He is a former researcher at the European Molecular Biology Laboratory in Heidelberg, Germany, and an honorary professor of biophysics at the University of Lausanne in Switzerland"
+        },
+        {   "Year": 2017,
+            "Name":"Joachim Frank",
+            "Born": "12 September 1940",
+            "Description":"Joachim Frank (born September 12, 1940) is a German-American biophysicist at Columbia University and a Nobel laureate. He is regarded as the founder of single-particle cryo-electron microscopy (cryo-EM), for which he shared the Nobel Prize in Chemistry in 2017 with Jacques Dubochet and Richard Henderson. He also made significant contributions to structure and function of the ribosome from bacteria and eukaryotes"
+        },
+        {   "Year": 2017,
+            "Name":"Richard Henderson",
+            "Born": "19 July 1945",
+            "Description":"Richard Henderson CH FRS FMedSci HonFRSC (born 19 July 1945) is a British molecular biologist and biophysicist and pioneer in the field of electron microscopy of biological molecules. Henderson shared the Nobel Prize in Chemistry in 2017 with Jacques Dubochet and Joachim Frank.'Thanks to his work, we can look at individual atoms of living nature, thanks to cryo-electron microscopes we can see details without destroying samples, and for this he won the Nobel Prize in Chemistry'"
+        },
+        {   "Year": 2016,
+            "Name":"Jean-Pierre Sauvage",
+            "Born": "21 October 1944",
+            "Description":"Jean-Pierre Sauvage (born 21 October 1944) is a French coordination chemist working at Strasbourg University. He graduated from the National School of Chemistry of Strasbourg (now known as ECPM Strasbourg), in 1967. He has specialized in supramolecular chemistry for which he has been awarded the 2016 Nobel Prize in Chemistry along with Sir J. Fraser Stoddart and Bernard L. Feringa."
+        },
+        {   "Year": 2016,
+            "Name":"Fraser Stoddart",
+            "Born": "24 May 1942",
+            "Description":"Fraser Stoddart"
+        },
+        {   "Year": 2016,
+            "Name":"Ben Feringa",
+            "Born": "18 May 1951",
+            "Description":"Ben Feringa"
+        },
+        {   "Year": 2015,
+            "Name":"Tomas Lindahl",
+            "Born": "28 January 1938",
+            "Description":"Tomas Robert Lindahl (born 28 January 1938) is a Swedish-British scientist specialising in cancer research. In 2015, he was awarded the Nobel Prize in Chemistry jointly with American chemist Paul L. Modrich and Turkish chemist Aziz Sancar for mechanistic studies of DNA repair."
+        },
+        {   "Year": 2015,
+            "Name":"Paul L. Modrich",
+            "Born": "June 13, 1946",
+            "Description":"Paul Lawrence Modrich (born June 13, 1946) is an American biochemist, James B. Duke Professor of Biochemistry at Duke University and Investigator at the Howard Hughes Medical Institute. He is known for his research on DNA mismatch repair.Modrich received the Nobel Prize in Chemistry 2015, jointly with Aziz Sancar and Tomas Lindahl"
+        },
+        {   "Year": 2014,
+            "Name":"Eric Betzig",
+            "Born": "January 13, 1960",
+            "Description":"Robert Eric Betzig (born January 13, 1960) is an American physicist who works as a professor of physics and professor of molecular and cell biology at the University of California, Berkeley. He is also a senior fellow at the Janelia Farm Research Campus in Ashburn, Virginia."
+        },
+        {   "Year": 2014,
+            "Name":"Stefan Hell",
+            "Born": "23 December 1962",
+            "Description":"Stefan Walter Hell (born 23 December 1962) is a Romanian-German physicist and one of the directors of the Max Planck Institute for Multidisciplinary Sciences in Göttingen, and of the Max Planck Institute for Medical Research in Heidelberg, both of which are in Germany. He received the Nobel Prize in Chemistry in 2014 'for the development of super-resolved fluorescence microscopy', together with Eric Betzig and William Moerner"
+        },
+        {   "Year": 2014,
+            "Name":"William E. Moerner",
+            "Born": "24 June 1953",
+            "Description":"William E. Moerner"
+        },
+        {   "Year": 2013,
+            "Name":"Martin Karplus",
+            "Born": "15 March 1930",
+            "Description":"Martin Karplus (born March 15, 1930) is an Austrian and American theoretical chemist. He is the Director of the Biophysical Chemistry Laboratory, a joint laboratory between the French National Center for Scientific Research and the University of Strasbourg, France. He is also the Theodore William Richards Professor of Chemistry, emeritus at Harvard University. Karplus received the 2013 Nobel Prize in Chemistry, together with Michael Levitt and Arieh Warshel, for 'the development of multiscale models for complex chemical systems'"
+        },
+        {   "Year": 2013,
+            "Name":"Michael Levitt",
+            "Born": "29 May 1929",
+            "Description":"Michael Levitt (born 9 May 1947) is a South African-born biophysicist and a professor of structural biology at Stanford University, a position he has held since 1987. Levitt received the 2013 Nobel Prize in Chemistry, together with Martin Karplus and Arieh Warshel, for 'the development of multiscale models for complex chemical systems'. In 2018, Levitt was a founding co-editor of the Annual Review of Biomedical Data Science."
+        },
+        {   "Year": 2013,
+            "Name":"Arieh Warshel",
+            "Born": "20 November 1940",
+            "Description":"Arieh Warshel (born November 20, 1940) is an Israeli-American biochemist and biophysicist. He is a pioneer in computational studies on functional properties of biological molecules, Distinguished Professor of Chemistry and Biochemistry, and holds the Dana and David Dornsife Chair in Chemistry at the University of Southern California. He received the 2013 Nobel Prize in Chemistry, together with Michael Levitt and Martin Karplus for 'the development of multiscale models for complex chemical systems'"
+        }
+    ],
+    "medicine":
+    [
+        {   "Year": 2023,
+            "Name":"Katalin Karikó",
+            "Born": "17 January 1955",
+            "Description":"Katalin Karikó (born 17 January 1955) is a Hungarian-American[ biochemist who specializes in ribonucleic acid (RNA)-mediated mechanisms, particularly in vitro-transcribed messenger RNA (mRNA) for protein replacement therapy. Karikó laid the scientific groundwork for mRNA vaccines, overcoming major obstacles and skepticism in the scientific community. Karikó received the Nobel Prize in Physiology or Medicine in 2023 for her work, along with American immunologist Drew Weissman."
+        },
+        {   "Year": 2023,
+            "Name":"Drew Weissman",
+            "Born": "7 September 1959",
+            "Description":"Drew Weissman (born September 7, 1959) is an American physician and immunologist known for his contributions to RNA biology. Weissman is the inaugural Roberts Family Professor in Vaccine Research, director of the Penn Institute for RNA Innovation, and professor of medicine at the Perelman School of Medicine at the University of Pennsylvania"
+        },
+        {   "Year": 2022,
+            "Name":"Svante Pääbo",
+            "Born": "20 April 1955",
+            "Description":"Svante Pääbo ForMemRS (born 20 April 1955) is a Swedish geneticist and Nobel Laureate who specialises in the field of evolutionary genetics. As one of the founders of paleogenetics, he has worked extensively on the Neanderthal genome. In 1997, he became founding director of the Department of Genetics at the Max Planck Institute for Evolutionary Anthropology in Leipzig, Germany. Since 1999, he has been an honorary professor at Leipzig University; he currently teaches molecular evolutionary biology at the university. He is also an adjunct professor at Okinawa Institute of Science and Technology, Japan"
+        },
+        {   "Year": 2021,
+            "Name":"David Julius",
+            "Born": "4 November 1955",
+            "Description":"David Jay Julius (born November 4, 1955) is an American physiologist and Nobel Prize laureate known for his work on molecular mechanisms of pain sensation and heat, including the characterization of the TRPV1 and TRPM8 receptors that detect capsaicin, menthol, and temperature. He is a professor at the University of California, San Francisco."
+        },
+        {   "Year": 2021,
+            "Name":"Ardem Patapoutian",
+            "Born": "1967",
+            "Description":"Ardem Patapoutian (born 1967) is a Lebanese-American molecular biologist, neuroscientist, and Nobel Prize laureate of Armenian descent. He is known for his work in characterizing the PIEZO1, PIEZO2, and TRPM8 receptors that detect pressure, menthol, and temperature. Patapoutian is a neuroscience professor and Howard Hughes Medical Institute investigator at Scripps Research in La Jolla, California. In 2021, he won the Nobel Prize in Physiology or Medicine jointly with David Julius"
+        },
+        {   "Year": 2020,
+            "Name":"Harvey J. Alter",
+            "Born": "12 September 1935",
+            "Description":"Harvey J. Alter"
+        },
+        {   "Year": 2020,
+            "Name":"Michael Houghton",
+            "Born": "1949",
+            "Description":"Sir Michael Houghton (born 1949) is a British scientist and Nobel Prize laureate. Along with Qui-Lim Choo, George Kuo and Daniel W. Bradley, he co-discovered Hepatitis C in 1989. He also co-discovered the Hepatitis D genome in 1986. The discovery of the Hepatitis C virus (HCV) led to the rapid development of diagnostic reagents to detect HCV in blood supplies, which has reduced the risk of acquiring HCV through blood transfusion from one in three to about one in two million. It is estimated that antibody testing has prevented at least 40,000 new infections per year in the US alone and many more worldwide"
+        },
+        {   "Year": 2019,
+            "Name":"William Kaelin Jr.",
+            "Born": "23 November 1957",
+            "Description":"William G. Kaelin Jr. (born November 23, 1957) is an American Nobel laureate physician-scientist. He is a professor of medicine at Harvard University and the Dana–Farber Cancer Institute. His laboratory studies tumor suppressor proteins. In 2016, Kaelin received the Albert Lasker Award for Basic Medical Research and the AACR Princess Takamatsu Award. He also won the Nobel Prize in Physiology or Medicine in 2019 along with Peter J. Ratcliffe and Gregg L. Semenza."
+        },
+        {   "Year": 2019,
+            "Name":"Peter J. Ratcliffe",
+            "Born": "14 May 1954",
+            "Description":"Sir Peter John Ratcliffe, FRS, FMedSci (born 14 May 1954) is a British physician-scientist who is trained as a nephrologist. He was a practising clinician at the John Radcliffe Hospital, Oxford and Nuffield Professor of Clinical Medicine and head of the Nuffield Department of Clinical Medicine at the University of Oxford from 2004 to 2016. He has been a Fellow of Magdalen College, Oxford since 2004. In 2016 he became Clinical Research Director at the Francis Crick Institute, retaining a position at Oxford as a member of the Ludwig Institute of Cancer Research and director of the Target Discovery Institute, University of Oxford."
+        },
+        {   "Year": 2019,
+            "Name":"Gregg L. Semenza",
+            "Born": "12 July 1956",
+            "Description":"Gregg Leonard Semenza (born July 12, 1956) is a pediatrician and Professor of Genetic Medicine at the Johns Hopkins School of Medicine. He serves as the director of the vascular program at the Institute for Cell Engineering. He is a 2016 recipient of the Albert Lasker Award for Basic Medical Research. He is known for his discovery of HIF-1, which allows cancer cells to adapt to oxygen-poor environments. He shared the 2019 Nobel Prize in Physiology or Medicine for 'discoveries of how cells sense and adapt to oxygen availability' with William Kaelin Jr. and Peter J. Ratcliffe. Semenza has had ten research papers retracted due to falsified data."
+        },
+        {   "Year": 2018,
+            "Name":"James P. Allison",
+            "Born": "7 August 1948",
+            "Description":"James Patrick Allison (born August 7, 1948) is an American immunologist and Nobel laureate who holds the position of professor and chair of immunology and executive director of immunotherapy platform at the MD Anderson Cancer Center at the University of Texas."
+        },
+        {   "Year": 2018,
+            "Name":"Tasuku Honjo",
+            "Born": "27 January 1942",
+            "Description":"Tasuku Honjo (born January 27, 1942) is a Japanese physician-scientist and immunologist. He won the 2018 Nobel Prize in Physiology or Medicine and is best known for his identification of programmed cell death protein 1 (PD-1). He is also known for his molecular identification of cytokines: IL-4 and IL-5, as well as the discovery of activation-induced cytidine deaminase (AID) that is essential for class switch recombination and somatic hypermutation."
+        },
+        {   "Year": 2017,
+            "Name":"Jeffrey C. Hall",
+            "Born": "3 May 1945",
+            "Description":"Jeffrey Connor Hall (born May 3, 1945) is an American geneticist and chronobiologist. Hall is Professor Emeritus of Biology at Brandeis University and currently resides in Cambridge, Maine."
+        },
+        {   "Year": 2017,
+            "Name":"Michael Rosbash",
+            "Born": "7 March 1944",
+            "Description":"Michael Morris Rosbash (born March 7, 1944) is an American geneticist and chronobiologist. Rosbash is a professor and researcher at Brandeis University and investigator at the Howard Hughes Medical Institute. Rosbash's research group cloned the Drosophila period gene in 1984 and proposed the Transcription Translation Negative Feedback Loop for circadian clocks in 1990. In 1998, they discovered the cycle gene, clock gene, and cryptochrome photoreceptor in Drosophila through the use of forward genetics, by first identifying the phenotype of a mutant and then determining the genetics behind the mutation. Rosbash was elected to the National Academy of Sciences in 2003. Along with Michael W. Young and Jeffrey C. Hall, he was awarded the 2017 Nobel Prize in Physiology or Medicine 'for their discoveries of molecular mechanisms controlling the circadian rhythm'"
+        },
+        {   "Year": 2017,
+            "Name":"Michael W. Young",
+            "Born": "28 March 1949",
+            "Description":"Michael Warren Young (born March 28, 1949) is an American biologist and geneticist. He has dedicated over three decades to research studying genetically controlled patterns of sleep and wakefulness within Drosophila melanogaster."
+        },
+        {   "Year": 2016,
+            "Name":"Yoshinori Ohsumi",
+            "Born": "9 February 1945",
+            "Description":"Yoshinori Ohsumi (born February 9, 1945) is a Japanese cell biologist specializing in autophagy, the process that cells use to destroy and recycle cellular components. Ohsumi is a professor at Tokyo Institute of Technology's Institute of Innovative Research. He received the Kyoto Prize for Basic Sciences in 2012, the 2016 Nobel Prize in Physiology or Medicine, and the 2017 Breakthrough Prize in Life Sciences for his discoveries of mechanisms for autophagy."
+        },
+        {   "Year": 2015,
+            "Name":"William C. Campbell",
+            "Born": "28 June 1930",
+            "Description":"William Cecil Campbell (born 28 June 1930) is an Irish biologist and parasitologist with United States citizenship, known for his work in discovering a novel therapy against infections caused by roundworms, for which he was jointly awarded the 2015 Nobel Prize in Physiology or Medicine. He helped to discover a class of drugs called avermectins, whose derivatives have been shown to have 'extraordinary efficacy' in treating River blindness and Lymphatic filariasis, among other parasitic diseases affecting animals and humans. Campbell worked at the Merck Institute for Therapeutic Research 1957–1990, and is currently a research fellow emeritus at Drew University"
+        },
+        {   "Year": 2015,
+            "Name":"Satoshi Ōmura",
+            "Born": "12 July 1935",
+            "Description":"Satoshi Ōmura (born 12 July 1935) is a Japanese biochemist. He is known for the discovery and development of hundreds of pharmaceuticals originally occurring in microorganisms. In 2015, he was awarded the Nobel Prize in Physiology or Medicine jointly with William C. Campbell for their role in the discovery of avermectins and ivermectin, the world's first endectocide and a safe and highly effective microfilaricide. It is believed that the large molecular size of ivermectin prevents it from crossing the blood/aqueous humour barrier, and renders the drug an important treatment of helminthically-derived blindness."
+        },
+        {   "Year": 2015,
+            "Name":"Tu Youyou",
+            "Born": "30 December 1930",
+            "Description":"Tu Youyou (born 30 December 1930) is a Chinese malariologist and pharmaceutical chemist. She discovered artemisinin and dihydroartemisinin, used to treat malaria, a breakthrough in twentieth-century tropical medicine, saving millions of lives in South China, Southeast Asia, Africa, and South America."
+        },
+        {   "Year": 2014,
+            "Name":"John O'Keefe",
+            "Born": "18 November 1939",
+            "Description":"John O'Keefe, FRS FMedSci (born November 18, 1939) is an American-British neuroscientist, psychologist and a professor at the Sainsbury Wellcome Centre for Neural Circuits and Behaviour and the Research Department of Cell and Developmental Biology at University College London. He discovered place cells in the hippocampus, and that they show a specific kind of temporal coding in the form of theta phase precession. He shared the Nobel Prize in Physiology or Medicine in 2014, together with May-Britt Moser and Edvard Moser; he has received several other awards. He has worked at University College London for his entire career, but also held a part-time chair at the Norwegian University of Science and Technology at the behest of his Norwegian collaborators, the Mosers."
+        },
+        {   "Year": 2014,
+            "Name":"May-Britt Moser",
+            "Born": "4 January 1963",
+            "Description":"May-Britt Moser FRS (born 4 January 1963) is a Norwegian psychologist and neuroscientist, who is a Professor of Psychology and Neuroscience at the Norwegian University of Science and Technology (NTNU). She and her former husband, Edvard Moser, shared half of the 2014 Nobel Prize in Physiology or Medicine, awarded for work concerning the grid cells in the entorhinal cortex, as well as several additional space-representing cell types in the same circuit that make up the positioning system in the brain. Together with Edvard Moser she established the Moser research environment at NTNU, which they lead. Since 2012 she has headed the Centre for Neural Computation."
+        },
+        {   "Year": 2014,
+            "Name":"Edvard Moser",
+            "Born": "27 April 1962",
+            "Description":"Edvard Ingjald Moser (born 27 April 1962) is a Norwegian psychologist and neuroscientist, who is a professor at the Norwegian University of Science and Technology (NTNU) in Trondheim. In 2005, he and his then-wife May-Britt Moser discovered grid cells in the brain's medial entorhinal cortex. Grid cells are specialized neurons that provide the brain with a coordinate system and a metric for space. In 2018, he discovered a neural network that expresses a person's sense of time in experiences and memories located in the brain's lateral entorhinal cortex"
+        },
+        {   "Year": 2013,
+            "Name":"James Rothman",
+            "Born": "3 November 1950",
+            "Description":"James Edward Rothman (born November 3, 1950) is an American biochemist. He is the Fergus F. Wallace Professor of Biomedical Sciences at Yale University, the Chairman of the Department of Cell Biology at Yale School of Medicine, and the Director of the Nanobiology Institute at the Yale West Campus. Rothman also concurrently serves as adjunct professor of physiology and cellular biophysics at Columbia University and a research professor at the UCL Queen Square Institute of Neurology, University College London"
+        },
+        {   "Year": 2013,
+            "Name":"Randy Schekman",
+            "Born": "30 December 1948",
+            "Description":"Randy Wayne Schekman (born December 30, 1948) is an American cell biologist at the University of California, Berkeley,[6] former editor-in-chief of Proceedings of the National Academy of Sciences and former editor of Annual Review of Cell and Developmental Biology. In 2011, he was announced as the editor of eLife, a new high-profile open-access journal published by the Howard Hughes Medical Institute, the Max Planck Society and the Wellcome Trust launching in 2012. He was elected to the National Academy of Sciences in 1992. Schekman shared the 2013 Nobel Prize for Physiology or Medicine with James Rothman and Thomas C. Südhof for their ground-breaking work on cell membrane vesicle trafficking"
+        },
+        {   "Year": 2013,
+            "Name":"Thomas C. Südhof",
+            "Born": "December 22, 1955",
+            "Description":"Thomas Christian Südhof (born December 22, 1955), ForMemRS, is a German-American biochemist known for his study of synaptic transmission. Currently, he is a professor in the school of medicine in the department of molecular and cellular physiology, and by courtesy in neurology, and in psychiatry and behavioral sciences at Stanford University."
+        }
+    ],
+    "literature":
+    [
+        {   "Year": 2023,
+            "Name":"Jon Fosse",
+            "Born": "29 September 1959",
+            "Description":"Jon Olav Fosse (born 29 September 1959) is a Norwegian author, translator, and playwright. In 2023, he was awarded the Nobel Prize in Literature 'for his innovative plays and prose which give voice to the unsayable.'"
+        },
+        {   "Year": 2022,
+            "Name":"Annie Ernaux",
+            "Born": "20 April 1955",
+            "Description":"Annie Thérèse Blanche Ernaux (born 1 September 1940) is a French writer who was awarded the 2022 Nobel Prize in Literature 'for the courage and clinical acuity with which she uncovers the roots, estrangements and collective restraints of personal memory'. Her literary work, mostly autobiographical, maintains close links with sociology."
+        },
+        {   "Year": 2021,
+            "Name":"Abdulrazak Gurnah",
+            "Born": "20 December 1948",
+            "Description":"Abdulrazak Gurnah FRSL (born 20 December 1948) is a Tanzanian-born British novelist and academic. He was born in the Sultanate of Zanzibar and moved to the United Kingdom in the 1960s as a refugee during the Zanzibar Revolution. His novels include Paradise (1994), which was shortlisted for both the Booker and the Whitbread Prize; By the Sea (2001), which was longlisted for the Booker and shortlisted for the Los Angeles Times Book Prize; and Desertion (2005), shortlisted for the Commonwealth Writers' Prize."
+        },
+        {   "Year": 2020,
+            "Name":"Louise Glück",
+            "Born": "12 September 1935",
+            "Description":"Louise Elisabeth Glück (April 22, 1943 – October 13, 2023) was an American poet and essayist. She won the 2020 Nobel Prize in Literature, whose judges praised 'her unmistakable poetic voice that with austere beauty makes individual existence universal'. Her other awards include the Pulitzer Prize, National Humanities Medal, National Book Award, National Book Critics Circle Award, and Bollingen Prize. From 2003 to 2004, she was Poet Laureate of the United States."
+        },
+        {   "Year": 2019,
+            "Name":"Peter Handke",
+            "Born": "6 December 1942",
+            "Description":"Peter Handke (born 6 December 1942) is an Austrian novelist, playwright, translator, poet, film director, and screenwriter. He was awarded the 2019 Nobel Prize in Literature 'for an influential work that with linguistic ingenuity has explored the periphery and the specificity of human experience.' Handke is considered to be one of the most influential and original German-language writers in the second half of the 20th century."
+        },
+        {   "Year": 2018,
+            "Name":"Olga Tokarczuk",
+            "Born": "29 January 1962",
+            "Description":"Olga Nawoja Tokarczuk[1] (born 29 January 1962) is a Polish writer, activist, and public intellectual. She is one of the most critically acclaimed and successful authors of her generation in Poland. In 2019, she was awarded the 2018 Nobel Prize in Literature as the first Polish female prose writer for 'a narrative imagination that with encyclopedic passion represents the crossing of boundaries as a form of life'. For her novel Flights, Tokarczuk was awarded the 2018 Man Booker International Prize. Her works include Primeval and Other Times, Drive Your Plow Over the Bones of the Dead, and The Books of Jacob."
+        },
+        {   "Year": 2017,
+            "Name":"Kazuo Ishiguro",
+            "Born": "8 November 1954",
+            "Description":"Sir Kazuo Ishiguro (born 8 November 1954) is a British novelist, screenwriter, musician, and short-story writer. He is one of the most critically acclaimed and praised contemporary fiction authors writing in English, having been awarded the 2017 Nobel Prize in Literature. In its citation, the Swedish Academy described Ishiguro as a writer 'who, in novels of great emotional force, has uncovered the abyss beneath our illusory sense of connection with the world'"
+        },
+        {   "Year": 2016,
+            "Name":"Bob Dylan",
+            "Born": "24 May 1941",
+            "Description":"Bob Dylan (born Robert Allen Zimmerman, May 24, 1941) is an American singer-songwriter. Generally regarded as one of the greatest songwriters ever, Dylan has been a major figure in popular culture over his 60-year career. He rose to prominence in the 1960s, when his songs 'Blowin in the Wind' (1963) and 'The Times They Are a-Changin' (1964) became anthems for the civil rights and antiwar movements. Initially modeling his style on Woody Guthrie's folk songs, Robert Johnson's blues, and what he called the 'architectural forms' of Hank Williams's country songs, Dylan added increasingly sophisticated lyrical techniques to the folk music of the early 1960s, infusing it 'with the intellectualism of classic literature and poetry'. His lyrics incorporated political, social, and philosophical influences, defying pop music conventions and appealing to the burgeoning counterculture."
+        },
+        {   "Year": 2015,
+            "Name":"Svetlana Alexievich",
+            "Born": "28 June 1930",
+            "Description":"Svetlana Alexandrovna Alexievich(born 31 May 1948) is a Belarusian investigative journalist, essayist and oral historian who writes in Russian. She was awarded the 2015 Nobel Prize in Literature 'for her polyphonic writings, a monument to suffering and courage in our time'. She is the first writer from Belarus to receive the award."
+        },
+        {   "Year": 2014,
+            "Name":"Patrick Modiano",
+            "Born": "30 July 1945",
+            "Description":"Jean Patrick Modiano (born 30 July 1945), generally known as Patrick Modiano, is a French novelist and recipient of the 2014 Nobel Prize in Literature. He is a noted writer of autofiction, the blend of autobiography and historical fiction"
+        },
+        {   "Year": 2013,
+            "Name":"Alice Munro",
+            "Born": "10 July 1931",
+            "Description":"Alice Ann Munro (born 10 July 1931) is a Canadian short story writer who won the Nobel Prize in Literature in 2013. Munro's work has been described as revolutionizing the architecture of the short story, especially in its tendency to move forward and backward in time, and with integrated short fiction cycles, in which she has displayed 'inarguable virtuosity'. Her stories have been said to 'embed more than announce, reveal more than parade'"
+        }
+    ],
+    "image":
+    {
+        "physics": "img/Physics.png",
+        "chemistry": "img/Chemistry.png",
+        "medicine": "img/PhysiologyMedicine.png",
+        "literature": "img/Literature.png"
+    }
+}
