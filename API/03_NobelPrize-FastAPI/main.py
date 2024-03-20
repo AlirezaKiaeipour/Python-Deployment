@@ -7,6 +7,10 @@ from fastapi.responses import StreamingResponse
 app = FastAPI()
 data = data = json.load(open("nobel.json"))
 
+@app.get("/")
+def read_nobel():
+    return {"Help:":"https://python-deployment-lwor.onrender.com/docs"}
+
 @app.get("/nobel")
 def read_nobel():
     return data["nobel_info"]
