@@ -9,7 +9,7 @@ app = FastAPI()
 def read_root():
     return "Age Estimation From The Image"
 
-@app.post("/AgeEstimation")
+@app.post("/age-estimation")
 async def read_image(input_image:UploadFile = File(None)):
     if not input_image.content_type.startswith("image/"):
         raise HTTPException(status_code=404, detail="Error in receiving the image")
