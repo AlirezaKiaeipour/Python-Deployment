@@ -9,7 +9,7 @@ def read_root():
 
 
 @app.get("/tasks")
-def read_tasks():
+def read_task():
     connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM ToDoList")
@@ -18,7 +18,7 @@ def read_tasks():
 
 
 @app.post("/tasks")
-def add_tasks(id:str = Form(), title:str = Form(), description:str = Form(), time:str = Form(), status:str = Form()):
+def add_task(id:int = Form(), title:str = Form(), description:str = Form(), time:str = Form(), status:int = Form()):
     connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
     cursor.execute(f'INSERT INTO ToDoList(id, title, description, time, status) VALUES("{id}","{title}","{description}","{time}","{status}")')
@@ -26,27 +26,27 @@ def add_tasks(id:str = Form(), title:str = Form(), description:str = Form(), tim
     return "Task Added"
 
 
-@app.delete("/tasks/{title}")
-def delete_tasks(title:str):
+@app.delete("/tasks/{id}")
+def delete_task(id:int):
     connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM ToDoList")
     results = cursor.fetchall()
     for i in results:
-        if title in i[1]:
-            cursor.execute(f'DELETE FROM ToDoList WHERE title="{title}"')
+        if str(id) in i[0]:
+            cursor.execute(f'DELETE FROM ToDoList WHERE id="{id}"')
             connection.commit()
             return "Task Deleted"
 
 
-@app.put("/tasks/{title}")
-def edit_tasks(title:str, description:str = Form(None), time:str = Form(None), status:str = Form(None)):
+@app.put("/tasks/{id}")
+def edit_task(id:int,title:str = Form(None), description:str = Form(None), time:str = Form(None), status:int = Form(None)):
     connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
     if title and description and time and status is None:
-        raise HTTPException(status_code=404, detail="Please complete the information")
+        raise HTTPException(status_code=204, detail="Please complete the information")
     else:
-        cursor.execute(f'UPDATE ToDoList SET description="{description}", time="{time}", status="{status}" WHERE title="{title}"')
+        cursor.execute(f'UPDATE ToDoList SET title="{title}", description="{description}", time="{time}", status="{status}" WHERE id="{id}"')
         connection.commit()
         return "Task Edited"
     
