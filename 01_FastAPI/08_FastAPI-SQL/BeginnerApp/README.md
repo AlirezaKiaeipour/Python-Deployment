@@ -1,6 +1,6 @@
 # Classroom Activities 
 
-- Simple Classroom Activities Using FastAPI & SQLAlchemy
+- Simple Classroom Activities Application Using FastAPI & SQLAlchemy
 - This application is deployed on Docker and SQLite database
 
 
