@@ -1,6 +1,6 @@
-# Classroom Activities 
+# Personal Information
 
-- Simple Classroom Activities Application Using FastAPI & SQLAlchemy
+- Simple Application For Submit Information Using FastAPI & SQLAlchemy
 - This application is deployed on Docker and SQLite database
 
 
