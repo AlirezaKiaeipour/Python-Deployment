@@ -4,7 +4,7 @@
 - [x] ToDoList using FastAPI
 
 
-## Install
+## Installation
 
 
 ```
