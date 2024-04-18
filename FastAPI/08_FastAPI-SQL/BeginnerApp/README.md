@@ -7,7 +7,7 @@
 
 
 ```
-docker build -t "Docker Image Name" .
+docker build -t "Image_Name" .
 
 ```
 
@@ -15,7 +15,7 @@ docker build -t "Docker Image Name" .
 You can run  Inference with the following command then copy the local IP in your browser
 
 ```
-docker run -d -p 80:80 "Docker Image Name"
+docker run -d -p 80:80 "Image_Name"
 ```
 
       
