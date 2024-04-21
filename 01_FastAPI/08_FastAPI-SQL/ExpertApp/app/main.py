@@ -37,6 +37,12 @@ def update_student_db(id:int, student: schemas.StudentCreate, db:Session = Depen
     return db_student
 
 
+@app.delete("/students/{id}")
+def delete_student_db(id:int, db:Session = Depends(get_db)):
+    db_student = crud.delete_student(db=db, id=id)
+    return db_student
+
+
 @app.get("/courses/{id}", response_model=schemas.Course)
 def get_course_db(id:int, db:Session = Depends(get_db)):
     db_course = crud.get_course(db=db,id=id)
@@ -58,4 +64,9 @@ def add_course_db(id:int, course: schemas.CourseCreate, db:Session = Depends(get
 @app.put("/courses", response_model=schemas.Course)
 def update_course_db(id:int, course: schemas.CourseCreate, db:Session = Depends(get_db)):
     db_course = crud.update_course(id=id, db=db, course=course)
+    return db_course
+
+@app.delete("/courses/{id}")
+def delete_course_db(id:int, db:Session = Depends(get_db)):
+    db_course = crud.delete_course(db=db, id=id)
     return db_course

@@ -12,7 +12,7 @@ class Student(Base):
     average = Column(Float)
     graduated = Column(Boolean)
 
-    courses = relationship("Course")
+    courses = relationship("Course", cascade="delete")
 
 
 class Course(Base):
@@ -21,6 +21,6 @@ class Course(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     unit = Column(Integer)
-    owner_id = Column(Integer, ForeignKey("students.id"))
+    owner_id = Column(Integer, ForeignKey("students.id",ondelete="CASCADE"))
 
     owner = relationship("Student")

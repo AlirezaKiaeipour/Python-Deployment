@@ -65,3 +65,21 @@ def update_course(id:int, db:Session, course: schemas.CourseCreate):
     db.commit()
     db.refresh(db_course)
     return db_course
+
+
+def delete_student(db:Session, id:int):
+    student = db.query(models.Student).filter(models.Student.id == id).first()
+    if student is None:
+        raise HTTPException(status_code=404, detail="Student Not Found")
+    db.delete(student)
+    db.commit()
+    return "Student Deleted"
+
+
+def delete_course(db:Session, id:int):
+    course = db.query(models.Course).filter(models.Course.id == id).first()
+    if course is None:
+        raise HTTPException(status_code=404, detail="Course Not Found")
+    db.delete(course)
+    db.commit()
+    return "Course Deleted"
