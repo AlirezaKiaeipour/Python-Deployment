@@ -2,17 +2,19 @@ import os
 import time
 import requests
 import asyncio
+import aiohttp
 import dotenv
 
 env = dotenv.load_dotenv()
 Rhyming_API_KEY = os.getenv("Rhyming_API_KEY")
 
 async def rhyme_finder(word):
-    print("Rhyming Started")
-    url = f"https://rhyming.ir/api/rhyme-finder?api={Rhyming_API_KEY}&w={word}&sb=1&mfe=2&eq=1"
-    response = requests.request("GET", url)
-    print("Rhyming Ended")
-    return response.json()
+    async with aiohttp.ClientSession() as session: 
+        print("Rhyming Started")
+        url = f"https://rhyming.ir/api/rhyme-finder?api={Rhyming_API_KEY}&w={word}&sb=1&mfe=2&eq=1"
+        response = await session.request("GET", url)
+        print("Rhyming Ended")
+        return await response.json()
 
 def get_states():
     url = "https://iran-locations-api.vercel.app/api/v1/fa/states"
