@@ -1,26 +1,29 @@
 # Sync & Async Programming
 
-## Create async function for different API and include: 
+### Reduced execution time using async programming
+
+### Create async function for different API and include: 
 - [Dehkhoda Dictionary](https://rhyming.ir)
 
 - [Iran Locations](https://iran-locations-api.vercel.app)
 
-
-#### Reduced execution time using async programming
 
 
 ## Installation
 
 ```
 pip install -r requirements.txt
-
 ```
 
 ## Run
 You can run  Inference with the following command
 
 ```
-uvicorn app.main:app --reload
+python 01_introduction_async.py
+
+python 02_async_marriage.py
+
+python 03_async_api.py
 ```
 
       
