@@ -42,7 +42,7 @@ async def get_coordinates(state_name, city_name):
 
 async def main():
     print("Process Started")
-    await asyncio.gather(rhyme_finder("سلام"), get_coordinates("آذربايجان شرقی","تبريز"))
+    print(await asyncio.gather(rhyme_finder("سلام"), get_coordinates("آذربايجان شرقی","تبريز")))
     print("All Process Ended Successfully")
 
 
