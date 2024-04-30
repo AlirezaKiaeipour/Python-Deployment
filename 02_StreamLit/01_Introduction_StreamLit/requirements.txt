@@ -1,3 +1,4 @@
 streamlit
+opencv-python
 pillow
 numpy

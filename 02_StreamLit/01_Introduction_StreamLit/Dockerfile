@@ -6,8 +6,8 @@ EXPOSE 8501
 # Upgrade pip and install requirements
 COPY requirements.txt requirements.txt
 RUN pip install -U pip
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 RUN pip install -r requirements.txt
-RUN pip install opencv-python
 
 # Copy app code and set working directory
 COPY . .
