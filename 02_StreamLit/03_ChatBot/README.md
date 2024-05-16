@@ -19,13 +19,11 @@ This is a chatbot application that utilizes the models of LLaMA3 and Gemma to pr
 
 ```
 pip install -r requirements.txt
-
 ```
 
 * Run
 
 ```
 streamlit run main.py
-
 ```
 
