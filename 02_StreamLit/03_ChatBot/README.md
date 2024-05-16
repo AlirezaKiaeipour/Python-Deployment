@@ -11,6 +11,7 @@ This is a chatbot application that utilizes the models of LLaMA3 and Gemma to pr
 * User Sign up and Login: Create an account and login to access personalized features and save your conversation history.
 * Chat History: View and access your previous conversations with AI models.
 * Cookie Manager: The cookie manager is used to manage user sessions and authenticate users.
+* PostgreSQL: The chatbot uses a PostgreSQL database to store and retrieve user data, conversation history and other relevant information.
 
 
 ## Setup and Installation
