@@ -1,0 +1,5 @@
+streamlit
+streamlit_authenticator
+groq
+sqlmodel
+python-dotenv
