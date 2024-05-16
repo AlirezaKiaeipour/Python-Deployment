@@ -4,7 +4,8 @@ import streamlit as st
 
 @st.cache_resource
 def connect_database():
-    engine = create_engine("sqlite:///database.db")
+    # engine = create_engine("sqlite:///database.db")
+    engine = create_engine("postgresql://root:rPuC0vswgyuQDQBRrMYwQYqj@db-chatbot:5432/postgres")
     SQLModel.metadata.create_all(engine)
     return engine
 
