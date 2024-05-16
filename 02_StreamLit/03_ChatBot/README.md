@@ -17,13 +17,13 @@ This is a chatbot application that utilizes the models of LLaMA3 and Gemma to pr
 
 * Install Dependencies:
 
-```
-pip install -r requirements.txt
-```
+  ```
+  pip install -r requirements.txt
+  ```
 
 * Run
 
-```
-streamlit run main.py
-```
+  ```
+  streamlit run main.py
+  ```
 
