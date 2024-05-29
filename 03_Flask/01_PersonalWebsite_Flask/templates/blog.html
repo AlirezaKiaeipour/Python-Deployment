@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alireza Kiaeipour">
+        <meta name="description" content="Personal website">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <title>Alireza Kiaeipour</title>
+    </head>
+    <body>
+        <div class=".container">
+            <!-- Header -->
+            <nav class="header">
+                <div class="cv">
+                    <a href="{{ url_for('download_cv') }}"><button class="btn_cv">Download CV<i class="uil uil-file-alt"></i></button></a>
+                </div>
+                <div class="nav_menu" id="Nav_Menu">
+                    <ul class="nav_menu_list">
+                        <li class="nav_list">
+                            <a href="{{ url_for('home') }}" class="nav_link">Home</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="{{ url_for('project') }}" class="nav_link">Projects</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="{{ url_for('blog') }}" class="nav_link">Blog</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="{{ url_for('contact') }}" class="nav_link">Contact</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="{{ url_for('login') }}" class="nav_link">Login</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav_menu_btn">
+                    <i class="uil uil-bars" onclick="menu_function()"></i>
+                </div>
+            </nav>
+
+            <!-- Main -->
+            <main class="main">
+                <section class="project_box" id="project">
+                    <div class="top_header">
+                        <h1>Blog</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="project_info">
+                                <h3><a href="https://arxiv.org/abs/2405.14458" target="_blank">YOLOv10: Real-Time End-to-End Object Detection</a></h3>
+                                <p>Over the past years, YOLOs have emerged as the predominant paradigm in the field of real-time object detection owing to their effective balance between computational cost and detection performance. Researchers have explored the architectural designs, optimization objectives, data augmentation strategies, and others for YOLOs, achieving notable progress. However, the reliance on the non-maximum suppression (NMS) for post-processing hampers the end-to-end deployment of YOLOs and adversely impacts the inference latency. Besides, the design of various components in YOLOs lacks the comprehensive and thorough inspection, resulting in noticeable computational redundancy and limiting the model's capability. It renders the suboptimal efficiency, along with considerable potential for performance improvements. In this work, we aim to further advance the performance-efficiency boundary of YOLOs from both the post-processing and model architecture. To this end, we first present the consistent dual assignments for NMS-free training of YOLOs, which brings competitive performance and low inference latency simultaneously. Moreover, we introduce the holistic efficiency-accuracy driven model design strategy for YOLOs. We comprehensively optimize various components of YOLOs from both efficiency and accuracy perspectives, which greatly reduces the computational overhead and enhances the capability. The outcome of our effort is a new generation of YOLO series for real-time end-to-end object detection, dubbed YOLOv10. Extensive experiments show that YOLOv10 achieves state-of-the-art performance and efficiency across various model scales. For example, our YOLOv10-S is 1.8× faster than RT-DETR-R18 under the similar AP on COCO, meanwhile enjoying 2.8× smaller number of parameters and FLOPs. Compared with YOLOv9-C, YOLOv10-B has 46% less latency and 25% fewer parameters for the same performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="project_info">
+                                <h3><a href="https://arxiv.org/abs/2405.17397" target="_blank">Occlusion Handling in 3D Human Pose Estimation with Perturbed Positional Encoding</a></h3>
+                                <p>Understanding human behavior fundamentally relies on accurate 3D human pose estimation. Graph Convolutional Networks (GCNs) have recently shown promising advancements, delivering state-of-the-art performance with rather lightweight architectures. In the context of graph-structured data, leveraging the eigenvectors of the graph Laplacian matrix for positional encoding is effective. Yet, the approach does not specify how to handle scenarios where edges in the input graph are missing. To this end, we propose a novel positional encoding technique, PerturbPE, that extracts consistent and regular components from the eigenbasis. Our method involves applying multiple perturbations and taking their average to extract the consistent and regular component from the eigenbasis. PerturbPE leverages the Rayleigh-Schrodinger Perturbation Theorem (RSPT) for calculating the perturbed eigenvectors. Employing this labeling technique enhances the robustness and generalizability of the model. Our results support our theoretical findings, e.g. our experimental analysis observed a performance enhancement of up to 12% on the Human3.6M dataset in instances where occlusion resulted in the absence of one edge. Furthermore, our novel approach significantly enhances performance in scenarios where two edges are missing, setting a new benchmark for state-of-the-art. </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script src="static/js/main.js"></script>
+    </body>
+</html>
