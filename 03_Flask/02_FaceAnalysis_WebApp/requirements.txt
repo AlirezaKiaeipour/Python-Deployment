@@ -1,0 +1,7 @@
+Flask
+sqlmodel
+numpy
+tf-keras
+deepface
+psycopg2-binary
+opencv-python

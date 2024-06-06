@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alireza Kiaeipour">
+        <meta name="description" content="Face Analysis website">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+        <link rel="icon" href="static/img/icon.png" type="image/x-icon">
+        <title>Face Analysis</title>
+        <style>
+            .bmr_message{
+                --dynamic-display:
+                {{ bmr_message }}
+            }
+            .face_analysis_message{
+                --dynamic-display:
+                {{ face_analysis_message }}
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light pt-2">
+                <div class="container">
+                  <a class="navbar-brand px-4 py-2" href="/logout">Logout</a>
+                  <h2 class="navbar-brand px-4 py-3 mt-2">Welcome <span>{{ username }}</span></h2>
+                </div>
+            </nav>
+
+            <section class="container py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-primary fs-1 fw-bold mb-3 text-center">Services</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs justify-content-center mt-4 g-2" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link fs-5 me-2 me-md-4 {{ btn_face_class }}" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Face Analysis</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link fs-5 me-2 me-md-4 {{ btn_bmr_class }}" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">BMR Calculator</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane {{ face_analysis_class }}" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                <div class="row">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="col-12">
+                                            <div class="mb-3 mt-4">
+                                                <label for="formFile" class="form-label">Upload Your Image</label>
+                                                <input class="form-control" type="file" name="image" id="formFile">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-primary fs-6">Send</button>
+                                    </form>
+                                </div>
+                                <div class="row mt-5 w-100 face_analysis_message" style="display: var(--dynamic-display);">
+                                    <div class="col-12">
+                                        <h1 class="text-primary about-profile">About You:</h1>
+                                        <div class="face-analysis d-flex justify-content-between mt-5">
+                                            <h5>Gender: <span>{{ gender }}</span></h5>
+                                            <h5>Age: <span>{{ age }}</span></h5>
+                                            <h5>Emotion: <span>{{ emotion }}</span></h5>
+                                            <h5>Race: <span>{{ race }}</span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane {{ bmr_class }}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                <div class="row mt-4">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="col-12">
+                                            <div class="mb-3 mt-4">
+                                                <div class="input-group my-2 bmr-input">
+                                                    <span class="input-group-text bmr-label">Weight</span>
+                                                    <input name="weight_input" type="text" aria-label="First name" class="form-control" placeholder="Enter Your Weight (kg)">
+                                                </div>
+                                                <div class="input-group my-2 bmr-input">
+                                                    <span class="input-group-text bmr-label">Height</span>
+                                                    <input name="height_input" type="text" aria-label="First name" class="form-control" placeholder="Enter Your Height (cm)">
+                                                </div>
+                                                <div class="input-group my-2 bmr-input">
+                                                    <span class="input-group-text bmr-label">Age</span>
+                                                    <input name="age_input" type="text" aria-label="First name" class="form-control" placeholder="Enter Your Age (years)">
+                                                </div>
+                                                <div class="input-group mb-3 bmr-input">
+                                                    <label class="input-group-text bmr-label" for="inputGroupSelect01">Gender</label>
+                                                    <select name="gender_input" class="form-select" id="inputGroupSelect01">
+                                                      <option selected>Choose...</option>
+                                                      <option value="man">Man</option>
+                                                      <option value="woman">Woman</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-primary fs-6">Send</button>
+                                    </form>
+                                </div>
+                                <div class="row mt-5 w-100 bmr_message" style="display: var(--dynamic-display);">
+                                    <div class="col-12">
+                                        <h2 class="text-primary about-profile">Your BMR: <span class="text-danger">{{ bmr }}</span> Calories/day</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <script src="static/js/bootstrap.js"></script>
+    </body>
+</html>
