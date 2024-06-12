@@ -5,3 +5,6 @@ tf-keras
 deepface
 psycopg2-binary
 opencv-python
+ultralytics
+bcrypt
+python-dotenv

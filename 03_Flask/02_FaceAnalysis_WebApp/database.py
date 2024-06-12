@@ -4,8 +4,8 @@ from models import User
 engine = create_engine("sqlite:///database.db")
 SQLModel.metadata.create_all(engine)
 
-def insert_user(name, username, email, password):
-    result = User(name=name, username=username, email=email, password=password)
+def insert_user(first_name, last_name, username, email, password, age, country, city, time):
+    result = User(first_name=first_name, last_name=last_name, username=username, email=email, password=password, age=age, country=country, city=city, join_time=time)
     with Session(engine) as session:
         session.add(result)
         session.commit()
@@ -23,9 +23,16 @@ def get_username(email):
         user = session.exec(result).first()
         return user.username
     
-def authentication(email, password):
+def get_password(email):
     with Session(engine) as session:
-        result = select(User).where(User.email == email).where(User.password == password)
+        result = select(User).where(User.email == email)
+        user = session.exec(result).first()
+        if user:
+            return user.password
+    
+def authentication(email):
+    with Session(engine) as session:
+        result = select(User).where(User.email == email)
         user = session.exec(result).first()
         if user:
             return True

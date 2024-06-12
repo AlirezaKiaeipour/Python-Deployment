@@ -21,10 +21,14 @@
                 --dynamic-display:
                 {{ face_analysis_message }}
             }
+            .object_detection_message{
+                --dynamic-display:
+                {{ object_detection_message }}
+            }
         </style>
     </head>
     <body>
-        <header class="header">
+        <header class="header-profile">
             <nav class="navbar navbar-expand-lg navbar-light pt-2">
                 <div class="container">
                   <a class="navbar-brand px-4 py-2" href="/logout">Logout</a>
@@ -45,6 +49,9 @@
                               <button class="nav-link fs-5 me-2 me-md-4 {{ btn_face_class }}" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Face Analysis</button>
                             </li>
                             <li class="nav-item" role="presentation">
+                                <button class="nav-link fs-5 me-2 me-md-4 {{ btn_object_class }}" id="object-tab" data-bs-toggle="tab" data-bs-target="#object-tab-pane" type="button" role="tab" aria-controls="object-tab-pane" aria-selected="false">Object Detection</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
                               <button class="nav-link fs-5 me-2 me-md-4 {{ btn_bmr_class }}" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">BMR Calculator</button>
                             </li>
                         </ul>
@@ -55,7 +62,7 @@
                                         <div class="col-12">
                                             <div class="mb-3 mt-4">
                                                 <label for="formFile" class="form-label">Upload Your Image</label>
-                                                <input class="form-control" type="file" name="image" id="formFile">
+                                                <input class="form-control" type="file" name="image_face" id="formFile">
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-lg btn-primary fs-6">Send</button>
@@ -73,6 +80,27 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="tab-pane {{ object_detection_class }}" id="object-tab-pane" role="tabpanel" aria-labelledby="object-tab" tabindex="0">
+                                <div class="row">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="col-12">
+                                            <div class="mb-3 mt-4">
+                                                <label for="formFile" class="form-label">Upload Your Image</label>
+                                                <input class="form-control" type="file" name="image_object_detection" id="formFile">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-primary fs-6">Send</button>
+                                    </form>
+                                </div>
+                                <div class="row mt-2 w-100 object_detection_message" style="display: var(--dynamic-display);">
+                                    <div class="col-12">
+                                        <h3 class="text-primary about-profile">Object Detection On Your Image:</h3>
+                                        <img src="{{ save_path_annotated_image }}" style="width: 250px;">
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="tab-pane {{ bmr_class }}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                                 <div class="row mt-4">
                                     <form method="post" enctype="multipart/form-data">

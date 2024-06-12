@@ -1,58 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Alireza Kiaeipour">
-        <meta name="description" content="Face Analysis website">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
-        <link rel="icon" href="static/img/icon.png" type="image/x-icon">
-        <title>Face Analysis</title>
-        <style>
-            .aler_message {
-                --dynamic-display:
-                {{ show_alert }}
-            }
-            .aler_message_success{
-                --dynamic-display:
-                {{ show_alert_success }}
-            }
-            .aler_login{
-                --dynamic-display:
-                {{ show_aler_login }}
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light pt-2">
-                <div class="container">
-                  <a class="navbar-brand px-4 py-2" href="/login">Login</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5" href="/home">Home</a>
-                      </li>
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5" href="/services">Services</a>
-                      </li>
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5" href="#">Contact</a>
-                      </li>
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5 active" href="/login">Login</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </nav>
+{% extends 'layout.html' %}
+        {% block header %}
+            <header class="height-login">
+        {% endblock %}
+            {% block section %}
             <section class="d-flex justify-content-center align-items-center login-page">
                 <div class="row box-area px-4">
                     <div class="col-md-5 align-items-center left-box border rounded-5 bg-white shadow p-4 m-2 mx-4">
@@ -90,19 +40,34 @@
                         <div class="header-login-text mb-4">
                             <form method="post">
                                 <h2>Sign Up</h2>
-                                <div class="input-group mb-3 mt-4">
-                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="name_register" placeholder="Enter your Name">
+                                <div class="input-group mb-1 mt-4">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="first_name_register" placeholder="* Enter your First Name">
                                 </div>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="email_register" placeholder="Enter your Email">
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="last_name_register" placeholder="* Enter your Last Name">
                                 </div>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="username_register" placeholder="Enter your Username">
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="age_register" placeholder="Enter your Age">
                                 </div>
-                                <div class="input-group mb-3">
-                                    <input type="password" class="form-control form-control-lg bg-light fs-6" name="password_register" placeholder="Enter your Password">
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="email_register" placeholder="* Enter your Email">
                                 </div>
-                                <div class="input-group mb-2 mt-4">
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="username_register" placeholder="* Enter your Username">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="country_register" placeholder="Enter your Country">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="city_register" placeholder="Enter your City">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <input type="password" class="form-control form-control-lg bg-light fs-6" name="password_register" placeholder="* Enter your Password">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <input type="password" class="form-control form-control-lg bg-light fs-6" name="confirm_password_register" placeholder="* Confirm your Password">
+                                </div>
+                                <div class="input-group mb-2 mt-3">
                                     <button name="btn_register" type="submit" class="btn btn-lg btn-primary w-100 fs-6">Sign Up</button>
                                 </div>
                                 <div style="display: var(--dynamic-display);" class="alert alert-danger aler_message">
@@ -116,8 +81,4 @@
                     </div>
                 </div>
             </section>
-        </header>
-
-        <script src="static/js/bootstrap.js"></script>
-    </body>
-</html>
+            {% endblock %}

@@ -1,59 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Alireza Kiaeipour">
-        <meta name="description" content="Face Analysis website">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
-        <link rel="icon" href="static/img/icon.png" type="image/x-icon">
-        <title>Face Analysis</title>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light pt-2">
-                <div class="container">
-                  <a class="navbar-brand px-4 py-2" href="/login">Login</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5" aria-current="page" href="/home">Home</a>
-                      </li>
-                      <li class="nav-item ms-2">
-                        <a class="nav-link active fs-5" href="/services">Services</a>
-                      </li>
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5" href="#">Contact</a>
-                      </li>
-                      <li class="nav-item ms-2">
-                        <a class="nav-link fs-5" href="/login">Login</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </nav>
+{% extends 'layout.html' %}
+        {% block header %}
+          <header class="height-service">
+        {% endblock %}
+          {% block section %}
             <section class="project_box" id="project">
                 <div class="row">
                     <div class="col-12">
                         <h2 class="text-primary fs-1 fw-bold mb-3 text-center">Our Services</h2>
                     </div>
                 </div>
-                <div class="row row-services">
-                    <div class="col col-services">
+                <div class="row-services mt-1">
+                    <div class="col-services">
                         <div class="project_info">
                             <h3 class="text-primary">Face Analysis</h3>
                             <p>Face analysis service comes with a strong facial attribute analysis module including age, gender, facial expression (including angry, fear, neutral, sad, disgust, happy and surprise) and race (including asian, white, middle eastern, indian, latino and black) predictions. Result is going to be the size of faces appearing in the source image.</p>
                         </div>
                     </div>
                 </div>
-                <div class="row-services">
+                <div class="row-services mt-4">
+                  <div class="col-services">
+                      <div class="project_info">
+                          <h3 class="text-primary">Object Detection</h3>
+                          <p>Introducing Ultralytics YOLOv8, the latest version of the acclaimed real-time object detection and image segmentation model. YOLOv8 is built on cutting-edge advancements in deep learning and computer vision, offering unparalleled performance in terms of speed and accuracy. Its streamlined design makes it suitable for various applications and easily adaptable to different hardware platforms, from edge devices to cloud APIs.</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="row-services mt-4">
                     <div class="col-services">
                         <div class="project_info">
                             <h3 class="text-primary">BMR Calculator</h3>
@@ -62,8 +34,4 @@
                     </div>
                 </div>
             </section>
-        </header>
-
-        <script src="static/js/bootstrap.js"></script>
-    </body>
-</html>
+            {% endblock %}
