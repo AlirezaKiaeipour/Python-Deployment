@@ -1,6 +1,7 @@
 from sqlmodel import Session, SQLModel, create_engine, select
 from models import User
 
+# engine = create_engine("postgresql://root:CST1RRO7BWXefjwhREV4pYQ2@db-faceanalysis:5432/postgres")
 engine = create_engine("sqlite:///database.db")
 SQLModel.metadata.create_all(engine)
 
