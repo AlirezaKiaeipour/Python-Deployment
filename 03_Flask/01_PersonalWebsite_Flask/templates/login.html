@@ -1,60 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Alireza Kiaeipour">
-        <meta name="description" content="Personal website">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        <title>Alireza Kiaeipour</title>
-    </head>
-    <body>
-        <div class=".container">
-            <!-- Header -->
-            <nav class="header">
-                <div class="cv">
-                    <a href="{{ url_for('download_cv') }}"><button class="btn_cv">Download CV<i class="uil uil-file-alt"></i></button></a>
-                </div>
-                <div class="nav_menu" id="Nav_Menu">
-                    <ul class="nav_menu_list">
-                        <li class="nav_list">
-                            <a href="{{ url_for('home') }}" class="nav_link">Home</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="{{ url_for('project') }}" class="nav_link">Projects</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="{{ url_for('blog') }}" class="nav_link">Blog</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="{{ url_for('contact') }}" class="nav_link">Contact</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="{{ url_for('login') }}" class="nav_link">Login</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav_menu_btn">
-                    <i class="uil uil-bars" onclick="menu_function()"></i>
-                </div>
-            </nav>
-
+{% extends 'layout.html' %}
             <!-- Main -->
+            {% block section %}
             <main class="main">
                 <section class="project_box" id="contact">
                     <div class="row">
-                        <div class="col">
+                        <div class="col col-login">
                             <section class="login" id="project">
                                 <div class="login_form">
                                     <h3>Login</h3>
-                                    <form action="#">
-                                        <input type="text" placeholder="Enter your email">
-                                        <input type="password" placeholder="Enter your password">
+                                    <form method="post">
+                                        <input name="email_login" type="text" placeholder="Enter your email">
+                                        <input name="password_login" type="password" placeholder="Enter your password">
                                         <a href="#">Forgot password?</a>
                                         <button class="btn_form_login">Login</button>
+                                        <div style="display: var(--dynamic-display);" class="alert_danger aler_login">Please Enter Email/Password Correctly</div>
                                     </form>
                                 </div>
                             </section>
@@ -63,11 +22,19 @@
                             <section class="signup" id="project">
                                 <div class="signup_form">
                                     <h3>Sign Up</h3>
-                                    <form action="#">
-                                        <input type="text" placeholder="Enter your email">
-                                        <input type="password" placeholder="Enter your password">
-                                        <input type="password" placeholder="Confirm your password">
+                                    <form method="post">
+                                        <input name="first_name_register" type="text" placeholder="Enter your first name">
+                                        <input name="last_name_register" type="text" placeholder="Enter your last name">
+                                        <input name="age_register" type="text" placeholder="Enter your age">
+                                        <input name="email_register" type="text" placeholder="Enter your email">
+                                        <input name="username_register" type="text" placeholder="Enter your username">
+                                        <input name="country_register" type="text" placeholder="Enter your country">
+                                        <input name="city_register" type="text" placeholder="Enter your city">
+                                        <input name="password_register" type="password" placeholder="Enter your password">
+                                        <input name="confirm_password_register" type="password" placeholder="Confirm your password">
                                         <button class="btn_form_login">Sign Up</button>
+                                        <div style="display: var(--dynamic-display);" class="alert_danger aler_message">{{ alert }}</div>
+                                        <div style="display: var(--dynamic-display);" class="alert_success aler_message_success">User Registered Successfully</div>
                                     </form>
                                 </div>
                             </section>
@@ -75,9 +42,4 @@
                     </div>
                 </section>
             </main>
-        </div>
-
-        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-        <script src="static/js/main.js"></script>
-    </body>
-</html>
+            {% endblock %}

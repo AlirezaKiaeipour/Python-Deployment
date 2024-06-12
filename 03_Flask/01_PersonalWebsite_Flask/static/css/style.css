@@ -429,7 +429,7 @@ textarea{
 }
 
 .login{
-    margin-top: 2rem;
+    margin-top: 7rem;
     margin-left: 5rem;
     max-width: 430px;
     width: 100%;
@@ -447,6 +447,10 @@ textarea{
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
+.col-login{
+    display: block;
+}
+
 .login_form, .signup_form{
     padding: 2rem;
 }
@@ -460,14 +464,18 @@ textarea{
 }
 
 .login_form form input, .signup_form form input{
-    height: 50px;
+    height: 40px;
     width: 100%;
     padding: 0 15px;
     font-size: 17px;
-    margin-bottom: 1.3rem;
+    margin-bottom: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 6px;
     outline: none;
+}
+
+.login_form form input{
+    margin-bottom: 1.5rem;
 }
 
 .login_form form input:focus, .signup_form form input:focus{
@@ -504,6 +512,22 @@ textarea{
 
 .btn_form_login:hover{
     background: rgb(240, 240, 240);
+}
+
+.alert_danger{
+    padding: 20px;
+    margin-top: 1rem;
+    background-color: #f44336;
+    color: white;
+    border-radius: 10px;
+}
+
+.alert_success{
+    padding: 20px;
+    margin-top: 1rem;
+    background-color: #2af218;
+    color: white;
+    border-radius: 10px;
 }
 
 /* MEDIA ===> 1024px */

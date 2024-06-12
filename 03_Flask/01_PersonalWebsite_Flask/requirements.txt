@@ -1,1 +1,3 @@
 Flask
+sqlmodel
+psycopg2-binary
