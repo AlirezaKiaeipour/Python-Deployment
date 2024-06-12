@@ -13,5 +13,5 @@ This is personal website and it was built using Flask
 * Run
 
   ```
-  flask --app app run
+  flask run
   ```
