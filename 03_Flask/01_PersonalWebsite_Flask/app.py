@@ -2,10 +2,11 @@ import re
 from datetime import datetime
 from models import Register_User, Login_User
 from database import check_user, insert_user, authentication, get_password, get_username
-from flask import Flask, render_template, send_file, redirect, session, request, make_response, url_for
+from flask import Flask, render_template, send_file, redirect, session, request, make_response, url_for, flash
 import bcrypt
 
 app = Flask("Personal WebSite")
+app.secret_key = "123"
 salt = bcrypt.gensalt()
 
 def check_valid(pattern,text):
@@ -46,7 +47,7 @@ def contact():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        return render_template("login.html", show_alert="none", show_alert_success="none", show_aler_login="none")
+        return render_template("login.html")
     
     elif request.method == "POST":
         try:
@@ -84,31 +85,32 @@ def login():
                                                         country = register_data.country,
                                                         city = register_data.city,
                                                         time=join_time)
-                                            return render_template("login.html", show_alert="none", show_alert_success="block", show_aler_login="none")
+                                            flash("User Registered Successfully", "success")
+                                            return render_template("login.html", flash_register="block", flash_login="none")
                                         else:
-                                            alert = "Username/Email Already Exists"
-                                            return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                            flash("Username/Email Already Exists", "danger")
+                                            return render_template("login.html", flash_register="block", flash_login="none")
                                     else:
-                                        alert = "Invalid Email"
-                                        return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                        flash("Invalid Email", "danger")
+                                        return render_template("login.html", flash_register="block", flash_login="none")
                                 else:
-                                    alert = "Please Enter Email"
-                                    return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                    flash("Please Enter Email", "danger")
+                                    return render_template("login.html", flash_register="block", flash_login="none")
                             else:
-                                alert = "Please Enter Username"
-                                return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                flash("Please Enter Username", "danger")
+                                return render_template("login.html", flash_register="block", flash_login="none")
                         else:
-                            alert = "Password Does Not Match"
-                            return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none",show_aler_login="none")
+                            flash("Password Does Not Match", "danger")
+                            return render_template("login.html", flash_register="block", flash_login="none")
                     else:   
-                        alert = "Please Enter Password"
-                        return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none",show_aler_login="none")
+                        flash("Please Enter Password", "danger")
+                        return render_template("login.html", flash_register="block", flash_login="none")
                 else:
-                    alert = "Please Enter Your Last Name"
-                    return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                    flash("Please Enter Your Last Name", "danger")
+                    return render_template("login.html", flash_register="block", flash_login="none")
             else:
-                alert = "Please Enter Your First Name"
-                return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                flash("Please Enter Your First Name", "danger")
+                return render_template("login.html", flash_register="block", flash_login="none")
         except:
             pass
 
@@ -124,13 +126,18 @@ def login():
                     result_email_login = authentication(email=login_data.email)
                     result_password_login = decrypt_hash_password(login_data.password, user_password)
                     if result_email_login and result_password_login:
+                        username = get_username(login_data.email)
+                        session["username"] = username
                         return redirect(url_for("profile"))
                     else:
-                        return render_template("login.html", show_aler_login="block", show_alert="none", show_alert_success="none")
+                        flash("Please Enter Email/Password Correctly", "danger")
+                        return render_template("login.html", flash_register="none", flash_login="block")
                 else:
-                    return render_template("login.html", show_aler_login="block", show_alert="none", show_alert_success="none")
+                    flash("Please Enter Email/Password Correctly", "danger")
+                    return render_template("login.html", flash_register="none", flash_login="block")
             else:
-                return render_template("login.html", show_aler_login="block", show_alert="none", show_alert_success="none")
+                flash("Please Enter Email/Password Correctly", "danger")
+                return render_template("login.html", flash_register="none", flash_login="block")
         except:
             pass
 
@@ -142,4 +149,13 @@ def download_cv():
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    if "username" in session:
+        return render_template("profile.html")
+    else:
+        return redirect(url_for("login"))
+    
+    
+@app.route("/logout")
+def logout():
+    session.pop("username")
+    return redirect(url_for("home"))

@@ -13,7 +13,13 @@
                                         <input name="password_login" type="password" placeholder="Enter your password">
                                         <a href="#">Forgot password?</a>
                                         <button class="btn_form_login">Login</button>
-                                        <div style="display: var(--dynamic-display);" class="alert_danger aler_login">Please Enter Email/Password Correctly</div>
+                                        {% with messages = get_flashed_messages(with_categories=true) %}
+                                            {% if messages %}
+                                                {% for category, message in messages %}
+                                                    <div style="display: var(--dynamic-display);" class="alert_{{ category }} aler_login flash_login">{{ message }}</div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endwith %}
                                     </form>
                                 </div>
                             </section>
@@ -23,18 +29,24 @@
                                 <div class="signup_form">
                                     <h3>Sign Up</h3>
                                     <form method="post">
-                                        <input name="first_name_register" type="text" placeholder="Enter your first name">
-                                        <input name="last_name_register" type="text" placeholder="Enter your last name">
+                                        <input name="first_name_register" type="text" placeholder="* Enter your first name">
+                                        <input name="last_name_register" type="text" placeholder="* Enter your last name">
                                         <input name="age_register" type="text" placeholder="Enter your age">
-                                        <input name="email_register" type="text" placeholder="Enter your email">
-                                        <input name="username_register" type="text" placeholder="Enter your username">
+                                        <input name="email_register" type="text" placeholder="* Enter your email">
+                                        <input name="username_register" type="text" placeholder="* Enter your username">
                                         <input name="country_register" type="text" placeholder="Enter your country">
                                         <input name="city_register" type="text" placeholder="Enter your city">
-                                        <input name="password_register" type="password" placeholder="Enter your password">
-                                        <input name="confirm_password_register" type="password" placeholder="Confirm your password">
+                                        <input name="password_register" type="password" placeholder="* Enter your password">
+                                        <input name="confirm_password_register" type="password" placeholder="* Confirm your password">
                                         <button class="btn_form_login">Sign Up</button>
-                                        <div style="display: var(--dynamic-display);" class="alert_danger aler_message">{{ alert }}</div>
-                                        <div style="display: var(--dynamic-display);" class="alert_success aler_message_success">User Registered Successfully</div>
+                                        {% with messages = get_flashed_messages(with_categories=true) %}
+                                            {% if messages %}
+                                                {% for category, message in messages %}
+                                                    <div style="display: var(--dynamic-display);" class="alert_{{ category }} aler_message flash_register">{{ message }}</div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endwith %}
+                                        
                                     </form>
                                 </div>
                             </section>
