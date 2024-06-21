@@ -30,15 +30,21 @@
                                 <div class="input-group mb-3">
                                     <button class="btn btn-lg btn-light w-100 fs-6"><img src="static/img/icons8-google-48.png" class="me-2" style="width: 20px;"><small>Sign In with Google</small></button>
                                 </div>
-                                <div style="display: var(--dynamic-display);" class="alert alert-danger aler_login">
-                                    Please Enter Email/Password Correctly
-                                </div>
+                                {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% if messages %}
+                                        {% for category, message in messages %}
+                                            <div style="display: var(--dynamic-display);" class="alert alert-{{ category }} flash_login">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
                             </form>
                         </div>
                     </div>
                     <div class="col-md-5 align-items-center right-box  border rounded-5 bg-white shadow p-4 m-2 mx-5">
                         <div class="header-login-text mb-4">
-                            <form method="post">
+                            <form method="post" >
                                 <h2>Sign Up</h2>
                                 <div class="input-group mb-1 mt-4">
                                     <input type="text" class="form-control form-control-lg bg-light fs-6" name="first_name_register" placeholder="* Enter your First Name">
@@ -70,12 +76,15 @@
                                 <div class="input-group mb-2 mt-3">
                                     <button name="btn_register" type="submit" class="btn btn-lg btn-primary w-100 fs-6">Sign Up</button>
                                 </div>
-                                <div style="display: var(--dynamic-display);" class="alert alert-danger aler_message">
-                                    {{ alert }}
-                                </div>
-                                <div style="display: var(--dynamic-display);" class="alert alert-success aler_message_success">
-                                    User Registered Successfully
-                                </div>
+                                {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% if messages %}
+                                        {% for category, message in messages %}
+                                            <div style="display: var(--dynamic-display);" class="alert alert-{{ category }} flash_register">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
                             </form>
                         </div>
                     </div>

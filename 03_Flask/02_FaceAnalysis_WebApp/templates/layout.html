@@ -11,22 +11,17 @@
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
         <link rel="icon" href="static/img/icon.png" type="image/x-icon">
-        <style>
-        .aler_message {
-            --dynamic-display:
-            {{ show_alert }}
-        }
-        .aler_message_success{
-            --dynamic-display:
-            {{ show_alert_success }}
-        }
-        .aler_login{
-            --dynamic-display:
-            {{ show_aler_login }}
-        }
-        
-        </style>
         <title>Face Analysis</title>
+        <style>
+          .flash_login {
+              --dynamic-display:
+              {{ flash_login }}
+          }
+          .flash_register{
+              --dynamic-display:
+              {{ flash_register }}
+          }       
+          </style>
     </head>
     <body>
         {% block header %}

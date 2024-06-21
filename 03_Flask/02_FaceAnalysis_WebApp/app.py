@@ -4,7 +4,7 @@ from datetime import datetime
 from models import Login_User, Register_User 
 from database import check_user, insert_user, authentication, get_username, get_password
 import dotenv
-from flask import Flask, render_template, request, redirect, url_for, make_response, session
+from flask import Flask, render_template, request, redirect, url_for, make_response, session, flash
 import bcrypt
 from ultralytics import YOLO
 import cv2
@@ -52,10 +52,11 @@ def services():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        return render_template("login.html", show_alert="none", show_alert_success="none", show_aler_login="none")
+        return render_template("login.html")
     
     elif request.method == "POST":
         try:
+            
             register_data = Register_User(
                 first_name= request.form["first_name_register"],
                 last_name= request.form["last_name_register"],
@@ -90,32 +91,32 @@ def login():
                                                         country = register_data.country,
                                                         city = register_data.city,
                                                         time=join_time)
-                                            alert = "User Registered Successfully"
-                                            return render_template("login.html", show_alert="none", show_alert_success="block", show_aler_login="none")
+                                            flash("User Registered Successfully", "success")
+                                            return render_template("login.html", flash_register="block", flash_login="none")
                                         else:
-                                            alert = "Username/Email Already Exists"
-                                            return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                            flash("Username/Email Already Exists", "danger")
+                                            return render_template("login.html", flash_register="block", flash_login="none")
                                     else:
-                                        alert = "Invalid Email"
-                                        return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                        flash("Invalid Email", "danger")
+                                        return render_template("login.html", flash_register="block", flash_login="none")
                                 else:
-                                    alert = "Please Enter Email"
-                                    return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                    flash("Please Enter Email", "danger")
+                                    return render_template("login.html", flash_register="block", flash_login="none")
                             else:
-                                alert = "Please Enter Username"
-                                return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                                flash("Please Enter Username", "danger")
+                                return render_template("login.html", flash_register="block", flash_login="none")
                         else:
-                            alert = "Password Does Not Match"
-                            return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none",show_aler_login="none")
+                            flash("Password Does Not Match", "danger")
+                            return render_template("login.html", flash_register="block", flash_login="none")
                     else:   
-                        alert = "Please Enter Password"
-                        return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none",show_aler_login="none")
+                        flash("Please Enter Password", "danger")
+                        return render_template("login.html", flash_register="block", flash_login="none")
                 else:
-                    alert = "Please Enter Your Last Name"
-                    return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                    flash("Please Enter Your Last Name", "danger")
+                    return render_template("login.html", flash_register="block", flash_login="none")
             else:
-                alert = "Please Enter Your First Name"
-                return render_template("login.html", alert=alert, show_alert="block", show_alert_success="none", show_aler_login="none")
+                flash("Please Enter Your First Name", "danger")
+                return render_template("login.html", flash_register="block", flash_login="none")
         except:
             pass
 
@@ -137,11 +138,14 @@ def login():
                         response.set_cookie("username", username)
                         return response
                     else:
-                        return render_template("login.html", show_aler_login="block", show_alert="none", show_alert_success="none")
+                        flash("Please Enter Email/Password Correctly", "danger")
+                        return render_template("login.html", flash_register="none", flash_login="block")
                 else:
-                    return render_template("login.html", show_aler_login="block", show_alert="none", show_alert_success="none")
+                    flash("Please Enter Email/Password Correctly", "danger")
+                    return render_template("login.html", flash_register="none", flash_login="block")
             else:
-                return render_template("login.html", show_aler_login="block", show_alert="none", show_alert_success="none")
+                flash("Please Enter Email/Password Correctly", "danger")
+                return render_template("login.html", flash_register="none", flash_login="block")
         except:
             pass
 
@@ -166,21 +170,11 @@ def profile():
                         image.save(save_path)
                         result = DeepFace.analyze(
                         img_path = save_path, 
-                        actions = ['age', 'gender', 'race', 'emotion'],
+                        actions = ['age'],
                         )
                         age = result[0]["age"]
-
-                        gender = (result[0]["gender"])
-                        gender = max(zip(gender.values(), gender.keys()))[1]
-
-                        emotion = result[0]["emotion"]
-                        emotion = max(zip(emotion.values(), emotion.keys()))[1]
-
-                        race = result[0]["race"]
-                        race = max(zip(race.values(), race.keys()))[1]
-
                         
-                    response = make_response(render_template("profile.html", username=username, gender=gender, age=age, emotion=emotion, race=race, bmr_message="none", face_analysis_message="block", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", bmr_class="", object_detection_class= ""))
+                    response = make_response(render_template("profile.html", username=username, age=age, bmr_message="none", face_analysis_message="block", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", bmr_class="", object_detection_class= ""))
                     return response
             except:
                 pass
@@ -231,8 +225,7 @@ def profile():
 
 @app.route("/logout")
 def logout():
-    if "username" in session.keys():
-        response = make_response(redirect(url_for("home")))
-        response.set_cookie("username", "", expires=0)
-        session.clear()
-        return response
+    session.pop("username")
+    response = make_response(redirect(url_for("home")))
+    response.set_cookie("username", "", expires=0)
+    return response
