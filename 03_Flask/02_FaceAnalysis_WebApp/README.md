@@ -12,6 +12,7 @@ This is a web application that utilizes the models of DeepFace for face analysis
 * Face analysis using deepface package.
 * Object detection using YOLO-V8.
 * BMR calculator using Mifflin-St Jeor equation.
+* Pose detection using mediapipe package.
 
 
 ## Setup and Installation
