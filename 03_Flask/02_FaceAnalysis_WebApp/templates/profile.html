@@ -8,14 +8,14 @@
         <meta name="description" content="Face Analysis website">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
-        <link rel="icon" href="static/img/icon.png" type="image/x-icon">
-        <title>Face Analysis</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/bootstrap.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='/img/icon.png') }}" type="image/x-icon">
+        <title>AI App</title>
         <style>
-            .bmr_message{
+            .pose_detection_message{
                 --dynamic-display:
-                {{ bmr_message }}
+                {{ pose_detection_message }}
             }
             .face_analysis_message{
                 --dynamic-display:
@@ -46,13 +46,16 @@
                     <div class="col-12">
                         <ul class="nav nav-tabs justify-content-center mt-4 g-2" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link fs-5 me-2 me-md-4 {{ btn_face_class }}" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Face Analysis</button>
+                                <button class="nav-link fs-5 me-2 me-md-4 {{ btn_face_class }}" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Face Analysis</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link fs-5 me-2 me-md-4 {{ btn_object_class }}" id="object-tab" data-bs-toggle="tab" data-bs-target="#object-tab-pane" type="button" role="tab" aria-controls="object-tab-pane" aria-selected="false">Object Detection</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link fs-5 me-2 me-md-4 {{ btn_bmr_class }}" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">BMR Calculator</button>
+                                <button class="nav-link fs-5 me-2 me-md-4 {{ btn_pose_class }}" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pose Detection</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fs-5 me-2 me-md-4 {{ btn_mind_class }}" id="mind-tab" data-bs-toggle="tab" data-bs-target="#mind-tab-pane" type="button" role="tab" aria-controls="mind-tab-pane" aria-selected="false">Mind Reader</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -98,40 +101,40 @@
                                 </div>
                             </div>
                             
-                            <div class="tab-pane {{ bmr_class }}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                <div class="row mt-4">
+                            <div class="tab-pane {{ pose_class }}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                <div class="row">
                                     <form method="post" enctype="multipart/form-data">
                                         <div class="col-12">
                                             <div class="mb-3 mt-4">
-                                                <div class="input-group my-2 bmr-input">
-                                                    <span class="input-group-text bmr-label">Weight</span>
-                                                    <input name="weight_input" type="text" aria-label="First name" class="form-control" placeholder="Enter Your Weight (kg)">
-                                                </div>
-                                                <div class="input-group my-2 bmr-input">
-                                                    <span class="input-group-text bmr-label">Height</span>
-                                                    <input name="height_input" type="text" aria-label="First name" class="form-control" placeholder="Enter Your Height (cm)">
-                                                </div>
-                                                <div class="input-group my-2 bmr-input">
-                                                    <span class="input-group-text bmr-label">Age</span>
-                                                    <input name="age_input" type="text" aria-label="First name" class="form-control" placeholder="Enter Your Age (years)">
-                                                </div>
-                                                <div class="input-group mb-3 bmr-input">
-                                                    <label class="input-group-text bmr-label" for="inputGroupSelect01">Gender</label>
-                                                    <select name="gender_input" class="form-select" id="inputGroupSelect01">
-                                                      <option selected>Choose...</option>
-                                                      <option value="man">Man</option>
-                                                      <option value="woman">Woman</option>
-                                                    </select>
-                                                </div>
+                                                <label for="formFile" class="form-label">Upload Your Image</label>
+                                                <input class="form-control" type="file" name="image_pose_detection" id="formFile">
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-lg btn-primary fs-6">Send</button>
                                     </form>
                                 </div>
-                                <div class="row mt-5 w-100 bmr_message" style="display: var(--dynamic-display);">
+                                <div class="row mt-2 w-100 pose_detection_message" style="display: var(--dynamic-display);">
                                     <div class="col-12">
-                                        <h2 class="text-primary about-profile">Your BMR: <span class="text-danger">{{ bmr }}</span> Calories/day</h2>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane {{ mind_class }}" id="mind-tab-pane" role="tabpanel" aria-labelledby="mind-tab" tabindex="0">
+                                <div class="row mt-4">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="col-12">
+                                            <div class="mb-3 mt-4">
+                                                <div class="input-group my-2 bmr-input">
+                                                    <span class="input-group-text bmr-label">Number</span>
+                                                    <input name="number_input" type="number" aria-label="First name" class="form-control" placeholder="Enter Your Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button id="btn-mind" type="submit" class="btn btn-lg btn-primary fs-6">Send</button>
+                                    </form>
+                                </div>
+                                <div id="mind-progress-bar" style="height: 2rem !important" class="progress mt-4" role="progressbar" aria-label="Success example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                    <div id="mind-progress-bar-style" class="progress-bar bg-success" style="width: 0%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -140,6 +143,7 @@
             </section>
         </header>
 
-        <script src="static/js/bootstrap.js"></script>
+        <script src="{{ url_for('static', filename='/js/bootstrap.js') }}"></script>
+        <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
     </body>
 </html>

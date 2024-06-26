@@ -102,10 +102,6 @@ header{
     justify-content: center;
 }
 
-.bmr-input{
-    width: 80% !important;
-}
-
 .project_box{
     padding-block: 2em;
     padding-inline: 10vw;
@@ -189,7 +185,11 @@ header{
         height: 130vh !important;
     }
 
-    #home-tab, #object-tab, #profile-tab{
+    #home-tab, #object-tab, #profile-tab, #mind-tab{
         font-size: 15px !important;
+    }
+
+    .header-profile{
+        height: 120vh !important;
     }
 }

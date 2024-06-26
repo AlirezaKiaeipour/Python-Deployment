@@ -1,5 +1,6 @@
 import os
 import re
+import time
 from datetime import datetime
 from models import Login_User, Register_User 
 from database import check_user, insert_user, authentication, get_username, get_password
@@ -155,14 +156,14 @@ def profile():
     if "username" in session:
         username = request.cookies.get("username")
         if request.method == "GET":
-            response = make_response(render_template("profile.html", username=username, bmr_message="none", face_analysis_message="none", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", bmr_class="", object_detection_class= ""))
+            response = make_response(render_template("profile.html", username=username, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
             return response
 
         elif request.method == "POST":
             try:
                 image = request.files["image_face"]
                 if image.filename == "":
-                    response = make_response(render_template("profile.html", username=username, bmr_message="none", face_analysis_message="none", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", bmr_class="", object_detection_class= ""))
+                    response = make_response(render_template("profile.html", username=username, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
                     return response
                 else:
                     if image and allowed_file(image.filename):
@@ -174,7 +175,7 @@ def profile():
                         )
                         age = result[0]["age"]
                         
-                    response = make_response(render_template("profile.html", username=username, age=age, bmr_message="none", face_analysis_message="block", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", bmr_class="", object_detection_class= ""))
+                    response = make_response(render_template("profile.html", username=username, age=age, pose_detection_message="none", face_analysis_message="block", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
                     return response
             except:
                 pass
@@ -182,7 +183,7 @@ def profile():
             try:
                 image = request.files["image_object_detection"]
                 if image.filename == "":
-                    response = make_response(render_template("profile.html", username=username, bmr_message="none", face_analysis_message="none", object_detection_message="none", btn_object_class="active", object_detection_class= "fade show active", face_analysis_class="", bmr_class=""))
+                    response = make_response(render_template("profile.html", username=username, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_object_class="active", object_detection_class= "fade show active", face_analysis_class="", pose_class=""))
                     return response
                 else:
                     if image and allowed_file(image.filename):
@@ -193,34 +194,53 @@ def profile():
                         save_path_annotated_image = os.path.join("static/img/", image.filename)
                         cv2.imwrite(save_path_annotated_image, annotated_image)
                         
-                    response = make_response(render_template("profile.html", username=username, save_path_annotated_image=save_path_annotated_image, bmr_message="none", face_analysis_message="none", object_detection_message="block", btn_object_class="active", object_detection_class= "fade show active", face_analysis_class="", bmr_class=""))
+                    response = make_response(render_template("profile.html", username=username, save_path_annotated_image=save_path_annotated_image, pose_detection_message="none", face_analysis_message="none", object_detection_message="block", btn_object_class="active", object_detection_class= "fade show active", face_analysis_class="", pose_class=""))
                     return response
             except:
                 pass
 
             try:
-                gender_input_bmr = request.form["gender_input"]
-                weight_input_bmr = request.form["weight_input"]
-                height_input_bmr = request.form["height_input"]
-                age_input_bmr = request.form["age_input"]
-                if gender_input_bmr and weight_input_bmr and height_input_bmr and age_input_bmr is not None:
-            
-                    if gender_input_bmr == "man":
-                        bmr = (10 * int(weight_input_bmr)) + (6.25 * int(height_input_bmr)) - (5 * int(age_input_bmr)) + 5
-
-                    elif gender_input_bmr == "woman":
-                        bmr = (10 * int(weight_input_bmr)) + (6.25 * int(height_input_bmr)) - (5 * int(age_input_bmr)) - 161
-
-                    response = make_response(render_template("profile.html", username=username, bmr=bmr, bmr_message="block", face_analysis_message="none", object_detection_message="none", btn_bmr_class="active", bmr_class="fade show active", face_analysis_class="", object_detection_class= ""))
+                image = request.files["image_pose_detection"]
+                if image.filename == "":
+                    response = make_response(render_template("profile.html", username=username, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_pose_class="active", pose_class="fade show active", face_analysis_class="", object_detection_class= ""))
                     return response
                     
                 else:
-                    response = make_response(render_template("profile.html", username=username, bmr_message="none", face_analysis_message="none", object_detection_message="none", btn_bmr_class="active", bmr_class="fade show active", face_analysis_class="", object_detection_class= ""))
+                    if image and allowed_file(image.filename):
+                        save_path = os.path.join("static/img/", image.filename)
+                        image.save(save_path)
+                    response = make_response(redirect(url_for("pose_detection", save_path_pose=save_path)))
+                    return response
+            except:
+                pass
+
+            try:
+                time.sleep(1)
+                mind_number = request.form["number_input"]
+                if mind_number is not None:
+                    return redirect(url_for("mind_reader", mind_number=mind_number))
+                else:
+                    response = make_response(render_template("profile.html", username=username, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_mind_class="active", mind_class= "fade show active", face_analysis_class="", pose_class=""))
                     return response
             except:
                 pass
     else:
         return redirect(url_for("login"))
+    
+
+@app.route("/pose-detection", methods=["GET", "POST"])
+def pose_detection():
+    if "username" in session:
+        if request.method == "GET":
+            save_path_pose_image = request.args.get("save_path_pose")
+            response = make_response(render_template("pose-detection.html", save_path_pose_image=save_path_pose_image))
+            return response
+        
+
+@app.route("/profile/read-your-mind")
+def mind_reader():
+    number = request.args.get("mind_number")
+    return render_template("read-your-mind.html", number=number)
 
 
 @app.route("/logout")

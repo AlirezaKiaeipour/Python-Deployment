@@ -1,4 +1,4 @@
-# AI Web Application
+# Face Analysis & BMR Calculator Web Application
 
 ## Overview
 

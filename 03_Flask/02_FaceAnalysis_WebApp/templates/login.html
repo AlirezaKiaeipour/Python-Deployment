@@ -28,7 +28,7 @@
                                     <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="static/img/icons8-google-48.png" class="me-2" style="width: 20px;"><small>Sign In with Google</small></button>
+                                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="{{ url_for('static', filename='/img/icons8-google-48.png') }}" class="me-2" style="width: 20px;"><small>Sign In with Google</small></button>
                                 </div>
                                 {% with messages = get_flashed_messages(with_categories=true) %}
                                     {% if messages %}
