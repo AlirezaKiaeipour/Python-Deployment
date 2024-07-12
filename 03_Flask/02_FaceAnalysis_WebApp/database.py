@@ -18,6 +18,12 @@ def check_user(username, email):
         if user is None:
             return True
         
+def get_users():
+    with Session(engine) as session:
+        result = select(User)
+        users = session.exec(result).all()
+        return users
+        
 def get_username(email):
     with Session(engine) as session:
         result = select(User).where(User.email == email)

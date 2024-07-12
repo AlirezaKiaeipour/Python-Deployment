@@ -75,7 +75,8 @@
                                     <div class="col-12">
                                         <h1 class="text-primary about-profile">About You:</h1>
                                         <div class="face-analysis d-flex justify-content-between mt-5">
-                                            <h5>Age: <span>{{ age }}</span></h5>
+                                            <h3>Gender: <span>{{ gender }}</span></h3>
+                                            <h3>Age: <span>{{ age }}</span></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +97,7 @@
                                 <div class="row mt-2 w-100 object_detection_message" style="display: var(--dynamic-display);">
                                     <div class="col-12">
                                         <h3 class="text-primary about-profile">Object Detection On Your Image:</h3>
-                                        <img src="{{ save_path_annotated_image }}" style="width: 250px;">
+                                        <img src="{{ annotated_image }}" style="width: 250px;">
                                     </div>
                                 </div>
                             </div>

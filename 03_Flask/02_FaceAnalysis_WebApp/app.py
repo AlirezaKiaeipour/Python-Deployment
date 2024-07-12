@@ -3,13 +3,17 @@ import re
 import time
 from datetime import datetime
 from models import Login_User, Register_User 
-from database import check_user, insert_user, authentication, get_username, get_password
+from database import check_user, insert_user, authentication, get_username, get_password, get_users
 import dotenv
+import numpy as np
+from PIL import Image
 from flask import Flask, render_template, request, redirect, url_for, make_response, session, flash
 import bcrypt
-from ultralytics import YOLO
-import cv2
-from deepface import DeepFace
+from src.face_analysis import FaceAnalysis
+from src.object_detection import YOLOv8
+from utils.image import encode_image
+from utils.time import relative_time
+
 
 env = dotenv.load_dotenv()
 
@@ -18,7 +22,9 @@ app.secret_key = os.getenv("API_KEY")
 app.config["UPLOAD_FOLDER"] = "./uploads"
 app.config["ALLOWED_EXTENSIONS"] = {"jpg", "jpeg", "png"}
 salt = bcrypt.gensalt()
-model = YOLO("yolov8s.pt")
+
+face_analysis = FaceAnalysis("models/det_10g.onnx", "models/genderage.onnx")
+object_detector = YOLOv8("models/yolov8n.onnx")
 
 def check_valid(pattern,text):
     if re.match(pattern,text):
@@ -69,8 +75,7 @@ def login():
                 password= request.form["password_register"]
             )
             # current time
-            join_time = datetime.now()
-            join_time = join_time.strftime("%Y-%m-%d %H:%M:%S")            
+            join_time = datetime.now()           
             confirm_password = request.form["confirm_password_register"]
 
             if register_data.first_name:
@@ -167,15 +172,11 @@ def profile():
                     return response
                 else:
                     if image and allowed_file(image.filename):
-                        save_path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
-                        image.save(save_path)
-                        result = DeepFace.analyze(
-                        img_path = save_path, 
-                        actions = ['age'],
-                        )
-                        age = result[0]["age"]
+                        image = Image.open(image.stream)
+                        image = np.array(image)
+                        gender, age = face_analysis.detect_age_gender(image)
                         
-                    response = make_response(render_template("profile.html", username=username, age=age, pose_detection_message="none", face_analysis_message="block", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
+                    response = make_response(render_template("profile.html", username=username, age=age, gender=gender, pose_detection_message="none", face_analysis_message="block", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
                     return response
             except:
                 pass
@@ -187,14 +188,12 @@ def profile():
                     return response
                 else:
                     if image and allowed_file(image.filename):
-                        save_path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
-                        image.save(save_path)
-                        results = model(save_path)
-                        annotated_image = results[0].plot()
-                        save_path_annotated_image = os.path.join("static/img/", image.filename)
-                        cv2.imwrite(save_path_annotated_image, annotated_image)
+                        image = Image.open(image.stream)
+                        image = np.array(image)
+                        image, labels = object_detector(image)
+                        annotated_image = encode_image(image)
                         
-                    response = make_response(render_template("profile.html", username=username, save_path_annotated_image=save_path_annotated_image, pose_detection_message="none", face_analysis_message="none", object_detection_message="block", btn_object_class="active", object_detection_class= "fade show active", face_analysis_class="", pose_class=""))
+                    response = make_response(render_template("profile.html", username=username, annotated_image=annotated_image, pose_detection_message="none", face_analysis_message="none", object_detection_message="block", btn_object_class="active", object_detection_class= "fade show active", face_analysis_class="", pose_class=""))
                     return response
             except:
                 pass
@@ -249,3 +248,11 @@ def logout():
     response = make_response(redirect(url_for("home")))
     response.set_cookie("username", "", expires=0)
     return response
+
+
+@app.route("/admin")
+def admin():
+    users = get_users()
+    for user in users:
+        user.join_time = relative_time(user.join_time)
+    return render_template("admin.html", users=users)

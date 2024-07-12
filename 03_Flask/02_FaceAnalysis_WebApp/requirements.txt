@@ -1,10 +1,12 @@
-Flask
+flask
 sqlmodel
 numpy
-tf-keras
-deepface
 psycopg2-binary
+psycopg2
 opencv-python
-ultralytics
 bcrypt
 python-dotenv
+scikit-image
+pillow
+onnxruntime
+pyyaml
