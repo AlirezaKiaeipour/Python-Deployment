@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres
+    container_name: some-postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: username
+      POSTGRES_DB: db_postgres
+    networks:
+      - web_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  my_web:
+    image: my_web
+    container_name: my_web
+    networks:
+      - web_network
+    ports:
+      - "8080:5000"
+    volumes:
+      - .:/myapp
+    depends_on:
+      - postgres
+
+networks:
+  web_network:
+
+volumes:
+  postgres_data:
