@@ -27,7 +27,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="profile-body">
         <header class="header-profile">
             <nav class="navbar navbar-expand-lg navbar-light pt-2">
                 <div class="container">
@@ -80,6 +80,82 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Comment Section Start -->
+
+                                <div class="container my-5 py-5">
+                                    <div class="row d-flex justify-content-center">
+                                      <div class="col-md-12 col-lg-10">
+                                        <div class="card text-body">
+                                          <div class="card-body p-4">
+                                            <h4 class="mb-0">Recent comments</h4>
+                                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                                            <!-- First Comment -->
+                                            {% for comment, timestamp, first_name, last_name in face_analysis_comments %}
+                                            <div class="d-flex flex-start">
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                src="static/img/user.png" alt="avatar" width="40"
+                                                height="40" />
+                                              <div>
+                                                <h6 class="fw-bold mb-1">{{ first_name }} {{ last_name }}</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                  <p class="mb-0">
+                                                    {{ timestamp }}
+                                                  </p>
+                                                  <a href="#" class="link-muted"><i class="fas fa-pencil-alt ms-4"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">
+                                                    {{ comment }}
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <div class="d-flex align-items-center">
+                                                      <a href="#" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                                                      <a href="#" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>13</a>
+                                                    </div>
+                                                    <a href="#" class="link-muted"><i class="fas fa-reply me-1"></i> Reply</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <hr class="my-2" />
+                                            {% endfor %}
+                                          </div>
+                                          <!-- End -->
+                                
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Add Comment Start -->
+                                    <div class="row d-flex justify-content-center mt-4">
+                                        <div class="col-md-12 col-lg-10">
+                                          <div class="card">
+                                            <div class="card-body p-4">
+                                              <div class="d-flex flex-start w-100">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                    src="static/img/user.png" alt="avatar" width="40"
+                                                    height="40" />
+                                                <div class="w-100">
+                                                <h5>Add a comment</h5>
+                                                <form method="post" action="/add-face-user-comment">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                        <textarea name="face_analysis_text" class="form-control" id="textAreaExample" rows="4"></textarea>
+                                                        <label class="form-label" for="textAreaExample">What is your view?</label>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end mt-3">
+                                                        <button  type="submit" class="btn btn-success">
+                                                        Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- Add Comment End -->
+                                </div>
+                                <!-- Comment Section End -->  
                             </div>
 
                             <div class="tab-pane {{ object_detection_class }}" id="object-tab-pane" role="tabpanel" aria-labelledby="object-tab" tabindex="0">
@@ -100,6 +176,82 @@
                                         <img src="{{ annotated_image }}" style="width: 250px;">
                                     </div>
                                 </div>
+                                <!-- Comment Section Start -->
+
+                                <div class="container my-5 py-5">
+                                    <div class="row d-flex justify-content-center">
+                                      <div class="col-md-12 col-lg-10">
+                                        <div class="card text-body">
+                                          <div class="card-body p-4">
+                                            <h4 class="mb-0">Recent comments</h4>
+                                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                                            <!-- First Comment -->
+                                            {% for comment, timestamp, first_name, last_name in object_detection_comments %}
+                                            <div class="d-flex flex-start mt-2">
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                src="static/img/user.png" alt="avatar" width="40"
+                                                height="40" />
+                                              <div>
+                                                <h6 class="fw-bold mb-1">{{ first_name }} {{ last_name }}</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                  <p class="mb-0">
+                                                    {{ timestamp }}
+                                                  </p>
+                                                  <a href="#" class="link-muted"><i class="fas fa-pencil-alt ms-4"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">
+                                                    {{ comment }}
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                                    <div class="d-flex align-items-center">
+                                                      <a href="#" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                                                      <a href="#" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>13</a>
+                                                    </div>
+                                                    <a href="#" class="link-muted"><i class="fas fa-reply me-1"></i> Reply</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <hr class="my-2" />
+                                            {% endfor %}
+                                          </div>
+                                          <!-- End -->
+                                
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Add Comment Start -->
+                                    <div class="row d-flex justify-content-center mt-4">
+                                        <div class="col-md-12 col-lg-10">
+                                          <div class="card">
+                                            <div class="card-body p-4">
+                                              <div class="d-flex flex-start w-100">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                    src="static/img/user.png" alt="avatar" width="40"
+                                                    height="40" />
+                                                <div class="w-100">
+                                                <h5>Add a comment</h5>
+                                                <form method="post" action="/add-object-user-comment">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                        <textarea name="object_detection_text" class="form-control" id="textAreaExample" rows="4"></textarea>
+                                                        <label class="form-label" for="textAreaExample">What is your view?</label>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end mt-3">
+                                                        <button  type="submit" class="btn btn-success">
+                                                        Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- Add Comment End -->
+                                </div>
+                                <!-- Comment Section End --> 
                             </div>
                             
                             <div class="tab-pane {{ pose_class }}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
@@ -118,6 +270,82 @@
                                     <div class="col-12">
                                     </div>
                                 </div>
+                                <!-- Comment Section Start -->
+
+                                <div class="container my-5 py-5">
+                                    <div class="row d-flex justify-content-center">
+                                      <div class="col-md-12 col-lg-10">
+                                        <div class="card text-body">
+                                          <div class="card-body p-4">
+                                            <h4 class="mb-0">Recent comments</h4>
+                                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                                            <!-- First Comment -->
+                                             {% for comment, timestamp, first_name, last_name in pose_detection_comments %}
+                                            <div class="d-flex flex-start mt-2">
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                src="static/img/user.png" alt="avatar" width="40"
+                                                height="40" />
+                                              <div>
+                                                <h6 class="fw-bold mb-1">{{ first_name }} {{ last_name }}</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                  <p class="mb-0">
+                                                    {{ timestamp }}
+                                                  </p>
+                                                  <a href="#" class="link-muted"><i class="fas fa-pencil-alt ms-4"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">
+                                                    {{ comment }}
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                                    <div class="d-flex align-items-center">
+                                                      <a href="#" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                                                      <a href="#" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>13</a>
+                                                    </div>
+                                                    <a href="#" class="link-muted"><i class="fas fa-reply me-1"></i> Reply</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <hr class="my-2" />
+                                            {% endfor %}
+                                          </div>
+                                          <!-- End -->
+                                
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Add Comment Start -->
+                                    <div class="row d-flex justify-content-center mt-4">
+                                        <div class="col-md-12 col-lg-10">
+                                          <div class="card">
+                                            <div class="card-body p-4">
+                                              <div class="d-flex flex-start w-100">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                    src="static/img/user.png" alt="avatar" width="40"
+                                                    height="40" />
+                                                <div class="w-100">
+                                                <h5>Add a comment</h5>
+                                                <form method="post" action="/add-pose-user-comment">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                        <textarea name="pose_detection_text" class="form-control" id="textAreaExample" rows="4"></textarea>
+                                                        <label class="form-label" for="textAreaExample">What is your view?</label>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end mt-3">
+                                                        <button  type="submit" class="btn btn-success">
+                                                        Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- Add Comment End -->
+                                </div>
+                                <!-- Comment Section End --> 
                             </div>
 
                             <div class="tab-pane {{ mind_class }}" id="mind-tab-pane" role="tabpanel" aria-labelledby="mind-tab" tabindex="0">
@@ -137,6 +365,82 @@
                                 <div id="mind-progress-bar" style="height: 2rem !important" class="progress mt-4" role="progressbar" aria-label="Success example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                     <div id="mind-progress-bar-style" class="progress-bar bg-success" style="width: 0%;"></div>
                                 </div>
+                                <!-- Comment Section Start -->
+
+                                <div class="container my-5 py-5">
+                                    <div class="row d-flex justify-content-center">
+                                      <div class="col-md-12 col-lg-10">
+                                        <div class="card text-body">
+                                          <div class="card-body p-4">
+                                            <h4 class="mb-0">Recent comments</h4>
+                                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                                            <!-- First Comment -->
+                                             {% for comment, timestamp, first_name, last_name in mind_reader_comments %}
+                                            <div class="d-flex flex-start mt-2">
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                src="static/img/user.png" alt="avatar" width="40"
+                                                height="40" />
+                                              <div>
+                                                <h6 class="fw-bold mb-1">{{ first_name }} {{ last_name }}</h6>
+                                                <div class="d-flex align-items-center mb-3">
+                                                  <p class="mb-0">
+                                                    {{ timestamp }}
+                                                  </p>
+                                                  <a href="#" class="link-muted"><i class="fas fa-pencil-alt ms-4"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                                                  <a href="#" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                                                </div>
+                                                <p class="mb-0">
+                                                    {{ comment }}
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                                    <div class="d-flex align-items-center">
+                                                      <a href="#" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                                                      <a href="#" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>13</a>
+                                                    </div>
+                                                    <a href="#" class="link-muted"><i class="fas fa-reply me-1"></i> Reply</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <hr class="my-2" />
+                                            {% endfor %}
+                                          </div>
+                                          <!-- End -->
+                                
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Add Comment Start -->
+                                    <div class="row d-flex justify-content-center mt-4">
+                                        <div class="col-md-12 col-lg-10">
+                                          <div class="card">
+                                            <div class="card-body p-4">
+                                              <div class="d-flex flex-start w-100">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                    src="static/img/user.png" alt="avatar" width="40"
+                                                    height="40" />
+                                                <div class="w-100">
+                                                <h5>Add a comment</h5>
+                                                <form method="post" action="/add-mind-user-comment">
+                                                    <div data-mdb-input-init class="form-outline">
+                                                        <textarea name="mind_reader_text" class="form-control" id="textAreaExample" rows="4"></textarea>
+                                                        <label class="form-label" for="textAreaExample">What is your view?</label>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end mt-3">
+                                                        <button  type="submit" class="btn btn-success">
+                                                        Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- Add Comment End -->
+                                </div>
+                                <!-- Comment Section End --> 
                             </div>
                         </div>
                     </div>

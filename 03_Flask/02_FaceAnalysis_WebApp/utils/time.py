@@ -1,7 +1,7 @@
 from datetime import datetime
 
 def relative_time(time):
-    input_time = datetime.strptime(time, "%Y-%m-%d %H:%M:%S.%f")
+    input_time = datetime.strptime(str(time), "%Y-%m-%d %H:%M:%S.%f")
     current_time = datetime.now()
     diff = current_time - input_time
     seconds = diff.total_seconds()

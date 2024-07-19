@@ -2,17 +2,17 @@ import os
 import re
 import time
 from datetime import datetime
-from models import Login_User, Register_User 
-from database import check_user, insert_user, authentication, get_username, get_password, get_users
+from models import Login_User, Register_User, Submit_Comment
+from database import check_user, insert_user, authentication, get_username, get_password, get_users, get_user_id_by_username, insert_comment, get_name_by_username, get_comment_by_service, update_role, check_admin
+from src.face_analysis import FaceAnalysis
+from src.object_detection import YOLOv8
+from utils.image import encode_image
+from utils.time import relative_time
 import dotenv
 import numpy as np
 from PIL import Image
 from flask import Flask, render_template, request, redirect, url_for, make_response, session, flash
 import bcrypt
-from src.face_analysis import FaceAnalysis
-from src.object_detection import YOLOv8
-from utils.image import encode_image
-from utils.time import relative_time
 
 
 env = dotenv.load_dotenv()
@@ -73,9 +73,7 @@ def login():
                 city= request.form["city_register"],
                 country= request.form["country_register"],
                 password= request.form["password_register"]
-            )
-            # current time
-            join_time = datetime.now()           
+            )          
             confirm_password = request.form["confirm_password_register"]
 
             if register_data.first_name:
@@ -95,8 +93,7 @@ def login():
                                                         password = hashed_password,
                                                         age = register_data.age,
                                                         country = register_data.country,
-                                                        city = register_data.city,
-                                                        time=join_time)
+                                                        city = register_data.city)
                                             flash("User Registered Successfully", "success")
                                             return render_template("login.html", flash_register="block", flash_login="none")
                                         else:
@@ -161,7 +158,12 @@ def profile():
     if "username" in session:
         username = request.cookies.get("username")
         if request.method == "GET":
-            response = make_response(render_template("profile.html", username=username, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
+            face_analysis_comments = get_comment_by_service("face_analysis")
+            object_detection_comments = get_comment_by_service("object_detection")
+            pose_detection_comments = get_comment_by_service("pose_detection")
+            mind_reader_comments = get_comment_by_service("mind_reader")
+
+            response = make_response(render_template("profile.html", username=username, face_analysis_comments=face_analysis_comments, object_detection_comments=object_detection_comments, pose_detection_comments=pose_detection_comments, mind_reader_comments=mind_reader_comments, pose_detection_message="none", face_analysis_message="none", object_detection_message="none", btn_face_class="active", face_analysis_class="fade show active", pose_class="", object_detection_class= ""))
             return response
 
         elif request.method == "POST":
@@ -228,7 +230,7 @@ def profile():
     
 
 @app.route("/pose-detection", methods=["GET", "POST"])
-def pose_detection():
+def pose_detection_file():
     if "username" in session:
         if request.method == "GET":
             save_path_pose_image = request.args.get("save_path_pose")
@@ -249,10 +251,132 @@ def logout():
     response.set_cookie("username", "", expires=0)
     return response
 
+@app.route("/login-admin", methods=["GET", "POST"])
+def login_admin():
+    if request.method == "GET":
+        return render_template("login_admin.html")
+    elif request.method == "POST":
+        login_data = Login_User(
+                email = request.form["email_login_admin"],
+                password = request.form["password_login_admin"]
+            )
+        if login_data.email and login_data.password:
+            user_password = get_password(login_data.email)
+            if user_password is not None:
+                result_email_login = authentication(email=login_data.email)
+                result_password_login = decrypt_hash_password(login_data.password, user_password)
+                if result_email_login and result_password_login:
+                    username = get_username(login_data.email)
+                    role = check_admin(username)
+                    if role:
+                        session["username"] = username
+                        response = make_response(redirect(url_for("admin")))
+                        response.set_cookie("username", username)
+                        return response
+                    else:
+                        flash("You Are Not Admin", "danger")
+                        return render_template("login_admin.html", flash_register="none", flash_login="block")
+                else:
+                    flash("Please Enter Email/Password Correctly", "danger")
+                    return render_template("login_admin.html", flash_register="none", flash_login="block")
+            else:
+                flash("Please Enter Email/Password Correctly", "danger")
+                return render_template("login_admin.html", flash_register="none", flash_login="block")
+        else:
+            flash("Please Enter Email/Password Correctly", "danger")
+            return render_template("login_admin.html", flash_register="none", flash_login="block")
+
 
 @app.route("/admin")
 def admin():
-    users = get_users()
-    for user in users:
-        user.join_time = relative_time(user.join_time)
-    return render_template("admin.html", users=users)
+        try:
+            username = session.get("username")
+            users = get_users()
+            for user in users:
+                user.join_time = relative_time(user.join_time)
+            first_name, last_name = get_name_by_username(username)
+            return make_response(render_template("admin.html", first_name=first_name, last_name=last_name, users=users))
+        except:
+            return render_template("login_admin.html")
+        
+
+@app.route("/add-face-user-comment", methods=["POST"])
+def add_face_user_comment():
+    comment_data = Submit_Comment(
+        content = request.form["face_analysis_text"]
+        )
+    if comment_data.content:
+        username = session.get("username")
+        user_id = get_user_id_by_username(username)
+        insert_comment(content=comment_data.content, service="face_analysis", user_id=user_id)
+        return make_response(redirect(url_for("profile")))
+    
+    
+@app.route("/add-object-user-comment", methods=["POST"])
+def add_object_user_comment():
+    comment_data = Submit_Comment(
+        content = request.form["object_detection_text"]
+        )
+    if comment_data.content:
+        username = session.get("username")
+        user_id = get_user_id_by_username(username)
+        insert_comment(content=comment_data.content, service="object_detection", user_id=user_id)
+        return make_response(redirect(url_for("profile")))
+    
+    
+@app.route("/add-pose-user-comment", methods=["POST"])
+def add_pose_user_comment():
+    comment_data = Submit_Comment(
+        content = request.form["pose_detection_text"]
+        )
+    if comment_data.content:
+        username = session.get("username")
+        user_id = get_user_id_by_username(username)
+        insert_comment(content=comment_data.content, service="pose_detection", user_id=user_id)
+        return make_response(redirect(url_for("profile")))
+    
+    
+@app.route("/add-mind-user-comment", methods=["POST"])
+def add_mind_user_comment():
+    comment_data = Submit_Comment(
+        content = request.form["mind_reader_text"]
+        )
+    if comment_data.content:
+        username = session.get("username")
+        user_id = get_user_id_by_username(username)
+        insert_comment(content=comment_data.content, service="mind_reader", user_id=user_id)
+        return make_response(redirect(url_for("profile")))
+    
+
+@app.route("/admin-comment", methods=["GET", "POST"])
+def admin_comment():
+    username = request.cookies.get("username")
+    if username:
+        if request.method == "GET":
+            return make_response(render_template("admin_comment.html"))
+        elif request.method == "POST":
+            comments_option = request.form.get("options")
+            comments = get_comment_by_service(comments_option)
+            return make_response(render_template("admin_comment.html", comments=comments))
+    else:
+        return render_template("login_admin.html")
+
+
+@app.route("/admin-setting", methods=["GET", "POST"])
+def admin_setting():
+    username = request.cookies.get("username")
+    if username:
+        if request.method == "GET":
+            return make_response(render_template("admin_setting.html"))
+        elif request.method == "POST":
+            user = request.form["username_update_admin"]
+            email = request.form["email_update_admin"]
+            user = update_role(user, email)
+            if user is not None:
+                flash("User Change Admin Successfully", "success")
+                return make_response(render_template("admin_setting.html", flash_update_admin="block"))
+            else:
+                flash("Please Enter Email/Username Correctly", "danger")
+                return make_response(render_template("admin_setting.html", flash_update_admin="block"))
+    else:
+        return render_template("login_admin.html")

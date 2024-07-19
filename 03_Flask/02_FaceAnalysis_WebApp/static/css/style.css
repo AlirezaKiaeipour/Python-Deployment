@@ -24,7 +24,10 @@
 
 header{
     background: linear-gradient(180deg, #c4b6fd, #93acfc );
-    height: 100vh;
+}
+
+.profile-body{
+    background: linear-gradient(180deg, #c4b6fd, #93acfc );
 }
 
 .navbar-brand{
@@ -158,6 +161,15 @@ header{
 
 .height-login{
     height: 108vh;
+}
+
+.link-muted{
+    color: #aaa;
+    text-decoration: none;
+}
+
+.link-muted:hover{
+    color: #1266f1;
 }
 
 @media only screen and (max-width: 980px) {

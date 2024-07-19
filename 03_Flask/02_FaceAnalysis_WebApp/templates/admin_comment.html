@@ -56,10 +56,10 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/admin" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>AI Services</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Blog</a>
-                    <a href="/admin-comment" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Comments</a>
+                    <a href="/admin-comment" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Comments</a>
                     <a href="/admin-setting" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Setting</a>
                 </div>
             </nav>
@@ -148,44 +148,68 @@
                         </div>
                     </div>
                 </div>
+                <form method="post">
+                    <select class="form-select mt-4" name="options" aria-label="Default select example">
+                        <option selected>Select Section:</option>
+                        <option value="face_analysis">Face Analysis</option>
+                        <option value="object_detection">Object Detection</option>
+                        <option value="pose_detection">Pose Detection</option>
+                        <option value="mind_reader">Mind Reader</option>
+                    </select>
+                    <div class="d-flex justify-content-end mt-3">
+                        <button  type="submit" class="btn btn-success">
+                        Confirm
+                        </button>
+                    </div>
+                </form>
             </div>
             <!-- Sale & Revenue End -->
 
 
             <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Users</h6>
-                                <h6 class="mb-0">Email</h6>
-                                <a href="#">Show All</a>
+
+
+            <div class="container my-5 py-5">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-12 col-lg-10">
+                    <div class="card text-body">
+                      <div class="card-body p-4">
+                        <h5 class="fw-light mb-4 pb-2">Latest Comments section by users</h5>
+                        <!-- First Comment -->
+                        {% for comment, timestamp, first_name, last_name in comments %}
+                        <div class="d-flex flex-start">
+                        <img class="rounded-circle shadow-1-strong me-3"
+                            src="static/img/user.png" alt="avatar" width="40"
+                            height="40" />
+                          <div>
+                            <h6 class="fw-bold mb-1">{{ first_name }} {{ last_name }}</h6>
+                            <div class="d-flex align-items-center mb-3">
+                              <p class="mb-0">
+                                {{ timestamp }}
+                              </p>
+                              <a href="#" class="link-muted"><i class="fas fa-pencil-alt ms-4"></i></a>
+                              <a href="#" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                              <a href="#" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
                             </div>
-                            {% for user in users %}
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="static/img/user.png" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">{{ user.first_name }} {{ user.last_name }}</h6>
-                                        <span class="mb-0">{{ user.email }}</span>
-                                        <small>{{ user.join_time }}</small>
-                                    </div>
-                                    <span>{{ user.city }}</span>
+                            <p class="mb-0">
+                                {{ comment }}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <div class="d-flex align-items-center">
+                                  <a href="#" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                                  <a href="#" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>13</a>
                                 </div>
+                                <a href="#" class="link-muted"><i class="fas fa-reply me-1"></i> Reply</a>
                             </div>
-                            {% endfor %}
+                          </div>
                         </div>
+                        <hr class="my-2" />
+                        {% endfor %}
+                      </div>
+                      <!-- End -->
+            
                     </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
             </div>
             <!-- Widgets End -->

@@ -1,7 +1,6 @@
 flask
 sqlmodel
 numpy
-psycopg2-binary
 psycopg2
 opencv-python
 bcrypt
@@ -10,3 +9,5 @@ scikit-image
 pillow
 onnxruntime
 pyyaml
+fastapi
+uvicorn

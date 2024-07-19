@@ -1,12 +1,14 @@
 from sqlmodel import Session, SQLModel, create_engine, select
-from models import User
+from models import User, Comment 
+from utils.time import relative_time
 
-# engine = create_engine("postgresql://root:CST1RRO7BWXefjwhREV4pYQ2@db-faceanalysis:5432/postgres")
-engine = create_engine("sqlite:///database.db")
+# DATABASE_URL = "postgresql://username:password@some-postgres:5432/db_postgres"
+DATABASE_URL = "sqlite:///database.db"
+engine = create_engine(DATABASE_URL)
 SQLModel.metadata.create_all(engine)
 
-def insert_user(first_name, last_name, username, email, password, age, country, city, time):
-    result = User(first_name=first_name, last_name=last_name, username=username, email=email, password=password, age=age, country=country, city=city, join_time=time)
+def insert_user(first_name, last_name, username, email, password, age, country, city):
+    result = User(first_name=first_name, last_name=last_name, username=username, email=email, password=password, age=age, country=country, city=city)
     with Session(engine) as session:
         session.add(result)
         session.commit()
@@ -17,6 +19,15 @@ def check_user(username, email):
         user = session.exec(result).first()
         if user is None:
             return True
+
+def check_admin(username):
+    with Session(engine) as session:
+        result = select(User).where(User.username == username, User.role == "admin")
+        user = session.exec(result).first()
+        if user:
+            return user
+        else:
+            return None
         
 def get_users():
     with Session(engine) as session:
@@ -29,6 +40,18 @@ def get_username(email):
         result = select(User).where(User.email == email)
         user = session.exec(result).first()
         return user.username
+    
+def get_user_id_by_username(username):
+    with Session(engine) as session:
+        result = select(User).where(User.username == username)
+        user = session.exec(result).first()
+        return user.id
+    
+def get_name_by_username(username):
+    with Session(engine) as session:
+        result = select(User).where(User.username == username)
+        user = session.exec(result).first()
+        return user.first_name, user.last_name
     
 def get_password(email):
     with Session(engine) as session:
@@ -43,3 +66,29 @@ def authentication(email):
         user = session.exec(result).first()
         if user:
             return True
+        
+def insert_comment(content, service, user_id):
+    result = Comment(content=content, services=service, user_id=user_id)
+    with Session(engine) as session:
+        session.add(result)
+        session.commit()
+    
+def get_comment_by_service(service):
+    with Session(engine) as session:
+        result = (select(Comment.content, Comment.timestamp, User.first_name, User.last_name).join(User, User.id == Comment.user_id).where(Comment.services == service))
+        comments = session.exec(result).all()
+        comments = [(content, relative_time(timestamp), first_name, last_name) for content, timestamp, first_name, last_name in comments]
+        return comments
+
+def update_role(username, email):
+    with Session(engine) as session:
+        result = select(User).where(User.username == username, User.email == email)
+        user = session.exec(result).first()
+        if user:
+            user.role = "admin"
+            session.add(user)
+            session.commit()
+            return user
+        else:
+            return None
+        
