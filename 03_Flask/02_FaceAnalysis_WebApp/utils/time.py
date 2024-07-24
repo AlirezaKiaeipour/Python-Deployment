@@ -18,3 +18,6 @@ def relative_time(time):
     else:
         return f"{int(seconds // 86400)} days ago"
 
+def format_datatime(time):
+    input_time = datetime.strptime(str(time), "%Y-%m-%d %H:%M:%S.%f")
+    return input_time.strftime("%d/%m/%Y")

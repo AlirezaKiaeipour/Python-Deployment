@@ -172,6 +172,23 @@ header{
     color: #1266f1;
 }
 
+.card-blog{
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 8px 10px 2px var(--color-forth);
+    border-radius: 20px;
+}
+
+.card-title{
+    font-weight: 600;
+}
+
+.card-text{
+    font-size: 15px;
+    color: #555;
+    font-weight: 500
+}
+
 @media only screen and (max-width: 980px) {
     header{
         height: 100% !important;

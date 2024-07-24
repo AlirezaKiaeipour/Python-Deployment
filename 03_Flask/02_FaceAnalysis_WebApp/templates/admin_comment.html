@@ -26,6 +26,8 @@
 
     <!-- Template Stylesheet -->
     <link href="static/css/style_admin.css" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image/x-icon">
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -58,7 +60,7 @@
                 <div class="navbar-nav w-100">
                     <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>AI Services</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Blog</a>
+                    <a href="/admin-blog" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Blog</a>
                     <a href="/admin-comment" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Comments</a>
                     <a href="/admin-setting" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Setting</a>
                 </div>

@@ -19,15 +19,15 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image/x-icon">
-    <title>Admin Dashboard</title>
 
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="static/css/style_admin.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style_admin.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image/x-icon">
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="static/img/user.png" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="{{ url_for('static', filename= 'img/user.png') }}" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -58,9 +58,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/admin" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>AI Services</a>
-                    <a href="/admin-blog" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Blog</a>
+                    <a href="/admin-blog" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Blog</a>
                     <a href="/admin-comment" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Comments</a>
                     <a href="/admin-setting" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Setting</a>
                 </div>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="static/img/user.png" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="{{ url_for('static', filename= 'img/user.png') }}" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">{{ first_name }} {{ last_name }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -155,41 +155,35 @@
 
 
             <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Users</h6>
-                                <h6 class="mb-0">Email</h6>
-                                <a href="#">Show All</a>
-                            </div>
-                            {% for user in users %}
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="static/img/user.png" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">{{ user.first_name }} {{ user.last_name }}</h6>
-                                        <span class="mb-0">{{ user.email }}</span>
-                                        <small>{{ user.join_time }}</small>
-                                    </div>
-                                    <span>{{ user.city }}</span>
-                                </div>
-                            </div>
-                            {% endfor %}
+
+            <div class="container my-2 py-5">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-12 col-lg-10">
+                    <h3>Edit Post</h3>
+                    <form method="post" action="/admin-blog/edit-post">
+                        <input name="post_id_edit" value={{ post_id }} type="hidden" class="form-control">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Title:</label>
+                          <input name="title_update_blog" value="{{ title }}" type="text" class="form-control">
                         </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Head Content:</label>
+                            <textarea name="head_update_blog" class="form-control" id="textAreaExample" rows="4">{{ head }}</textarea>
                         </div>
-                    </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Content:</label>
+                          <textarea name="content_update_blog" class="form-control" id="textAreaExample" rows="10">{{ content }}</textarea>
+                        </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button type="submit" class="btn btn-warning">Edit Post</button>
+                        </div>
+
+   
+                    </form>
+                  </div>
                 </div>
             </div>
+            
             <!-- Widgets End -->
 
             <!-- Footer Start -->
@@ -218,16 +212,16 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="static/lib/chart/chart.min.js"></script>
-    <script src="static/lib/easing/easing.min.js"></script>
-    <script src="static/lib/waypoints/waypoints.min.js"></script>
-    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="static/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="static/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{ url_for('static', filename= 'lib/chart/chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'lib/easing/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'lib/tempusdominus/js/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="static/js/main_admin.js"></script>
+    <script src="{{ url_for('static', filename='js/main_admin.js') }}"></script>
 </body>
 
 </html>

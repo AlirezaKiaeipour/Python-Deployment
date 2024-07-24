@@ -275,3 +275,21 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+
+.card-blog{
+    width: 100%;
+    background-color: var(--light);
+    box-shadow: 1px 8px 10px 2px rgba(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.card-title{
+    font-weight: 600;
+}
+
+.card-text{
+    font-size: 15px;
+    color: #555;
+    font-weight: 500
+}
