@@ -1,0 +1,60 @@
+services:
+  hafez:
+    image: hafez
+    container_name: hafez
+    build:
+      context: ./app
+      dockerfile: Dockerfile1
+    networks:
+      - ai_network
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+
+  khayyam:
+    image: khayyam
+    container_name: khayyam
+    build:
+      context: ./app
+      dockerfile: Dockerfile2
+    networks:
+      - ai_network
+    ports:
+      - "8082:8082"
+    volumes:
+      - .:/app
+
+  application:
+    image: application
+    container_name: application
+    build:
+      context: ./app
+      dockerfile: Dockerfile3
+    networks:
+      - ai_network
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    depends_on:
+      - hafez
+      - khayyam
+
+  qrcode:
+    image: qrcode
+    container_name: qrcode
+    build:
+      context: ./app
+      dockerfile: Dockerfile4
+    networks:
+      - ai_network
+    ports:
+      - "8083:8083"
+    volumes:
+      - .:/app
+    depends_on:
+      - application
+
+networks:
+  ai_network:

@@ -1,0 +1,4 @@
+flask
+hafez
+Khayyam
+qrcode
