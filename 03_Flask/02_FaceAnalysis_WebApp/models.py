@@ -25,11 +25,10 @@ class Comment(SQLModel, table=True):
     services: str
     user_id: int = Field(foreign_key="user.id")
 
-class Blog(SQLModel, table=True):
+class Post(SQLModel, table=True):
     __table_args__ = {"extend_existing":True}
     id: Optional[int] = Field(default=None, primary_key=True)
     title: str
-    head: str
     content: str
     timestamp: datetime = Field(default_factory=datetime.now)
     user_id: int = Field(foreign_key="user.id")

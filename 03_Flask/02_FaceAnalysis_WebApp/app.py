@@ -57,13 +57,13 @@ def services():
 
 @app.route("/blog")
 def blog():
-    blogs = database.get_blogs()
-    return render_template("blog.html", blogs=blogs)
+    posts = database.get_blog()
+    return render_template("blog.html", posts=posts)
 
 @app.route("/blog/<int:id>")
 def blog_show(id):
-    blogs = database.get_blogs()
-    return render_template("blog_post.html", blogs=blogs)
+    posts = database.get_blog(summarization=False)
+    return render_template("blog_post.html", posts=posts)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -397,12 +397,8 @@ def admin_blog():
     username = request.cookies.get("username")
     if username:
         if request.method == "GET":
-            blogs = database.get_blogs()
-            return make_response(render_template("admin_blog.html", blogs=blogs))
-        elif request.method == "POST":
-            comments_option = request.form.get("options")
-            comments = database.get_comment_by_service(comments_option)
-            return make_response(render_template("admin_comment.html", comments=comments))
+            posts = database.get_blog()
+            return make_response(render_template("admin_blog.html", posts=posts))
     else:
         return redirect(url_for("login_admin"))
     
@@ -415,10 +411,9 @@ def admin_blog_new_post():
             return make_response(render_template("admin_blog_new_post.html"))
         elif request.method == "POST":
             title = request.form["blog_title_new_post"]
-            head = request.form["blog_head_new_post"]
             content = request.form["blog_content_new_post"]
             user_id = database.get_user_id_by_username(username)
-            database.insert_blog(title=title, head=head, content=content, user_id=user_id)
+            database.insert_blog(title=title, content=content, user_id=user_id)
             return make_response(redirect(url_for("admin_blog")))
         
 @app.route("/admin-blog/del-post", methods=["POST"])
@@ -431,8 +426,8 @@ def admin_blog_delete_post():
 @app.route("/admin-blog/edit", methods=["POST"])
 def admin_blog_edit():
     post_id = request.form.get("post_id_edit")
-    title, head, content = database.get_blog_by_id(post_id)
-    return make_response(render_template("admin_blog_edit_post.html", post_id=post_id, title=title, head=head, content=content))
+    title, content = database.get_blog_by_id(post_id)
+    return make_response(render_template("admin_blog_edit_post.html", post_id=post_id, title=title, content=content))
 
 @app.route("/admin-blog/edit-post", methods=["POST"])
 def admin_blog_edit_post():
@@ -441,7 +436,6 @@ def admin_blog_edit_post():
         user_id = database.get_user_id_by_username(username)
         post_id = request.form.get("post_id_edit")
         title = request.form["title_update_blog"]
-        head = request.form["head_update_blog"]
         content = request.form["content_update_blog"]
-        database.update_blog(post_id, title, head, content, user_id)
+        database.update_blog(post_id, title, content, user_id)
         return redirect(url_for("admin_blog"))
