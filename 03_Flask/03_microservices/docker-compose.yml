@@ -3,8 +3,8 @@ services:
     image: hafez
     container_name: hafez
     build:
-      context: ./app
-      dockerfile: Dockerfile1
+      context: dockerfiles/hafez/
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
@@ -16,8 +16,8 @@ services:
     image: khayyam
     container_name: khayyam
     build:
-      context: ./app
-      dockerfile: Dockerfile2
+      context: dockerfiles/khayyam/
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
@@ -29,8 +29,8 @@ services:
     image: application
     container_name: application
     build:
-      context: ./app
-      dockerfile: Dockerfile3
+      context: dockerfiles/main/
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
@@ -45,8 +45,8 @@ services:
     image: qrcode
     container_name: qrcode
     build:
-      context: ./app
-      dockerfile: Dockerfile4
+      context: dockerfiles/qrcode/
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
