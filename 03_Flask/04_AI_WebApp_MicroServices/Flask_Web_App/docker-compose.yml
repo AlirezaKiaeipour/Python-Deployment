@@ -16,7 +16,7 @@ services:
     container_name: object_detection
     build:
       context: ../Flask_Object_Detection_MicroServices/
-      dockerfile: ../Flask_Object_Detection_MicroServices/Dockerfile
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
@@ -29,7 +29,7 @@ services:
     container_name: face_analysis
     build:
       context: ../FastAPI_Face_Analysis_MicroServices/
-      dockerfile: ../FastAPI_Face_Analysis_MicroServices/Dockerfile
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
@@ -40,12 +40,15 @@ services:
   ai_web_app:
     image: ai_web_app
     container_name: ai_web_app
+    build:
+      context: ./
+      dockerfile: Dockerfile
     networks:
       - ai_network
     ports:
       - "8080:8080"
     volumes:
-      - .:/myapp
+      - .:/app
     depends_on:
       - postgres
       - face_analysis
