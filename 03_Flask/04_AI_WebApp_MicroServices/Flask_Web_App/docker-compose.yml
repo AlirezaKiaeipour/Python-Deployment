@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres
+    container_name: some-postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: username
+      POSTGRES_DB: db_postgres
+    networks:
+      - ai_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  object_detection:
+    image: object_detection
+    container_name: object_detection
+    build:
+      context: ../Flask_Object_Detection_MicroServices/
+      dockerfile: ../Flask_Object_Detection_MicroServices/Dockerfile
+    networks:
+      - ai_network
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+
+  face_analysis:
+    image: face_analysis
+    container_name: face_analysis
+    build:
+      context: ../FastAPI_Face_Analysis_MicroServices/
+      dockerfile: ../FastAPI_Face_Analysis_MicroServices/Dockerfile
+    networks:
+      - ai_network
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+  ai_web_app:
+    image: ai_web_app
+    container_name: ai_web_app
+    networks:
+      - ai_network
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/myapp
+    depends_on:
+      - postgres
+      - face_analysis
+      - object_detection
+
+
+networks:
+  ai_network:
+
+volumes:
+  postgres_data:

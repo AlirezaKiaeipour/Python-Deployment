@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+        {% block header %}
+          <header class="height-service">
+        {% endblock %}
+          {% block section %}
+            <section class="project_box" id="project">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-primary fs-1 fw-bold mb-3 text-center">Our Services</h2>
+                    </div>
+                </div>
+                <div class="row-services mt-1">
+                    <div class="col-services">
+                        <div class="project_info">
+                            <h3 class="text-primary">Face Analysis</h3>
+                            <p>Face analysis service comes with a strong facial attribute analysis module including age, gender, facial expression (including angry, fear, neutral, sad, disgust, happy and surprise) and race (including asian, white, middle eastern, indian, latino and black) predictions. Result is going to be the size of faces appearing in the source image.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-services mt-4">
+                  <div class="col-services">
+                      <div class="project_info">
+                          <h3 class="text-primary">Object Detection</h3>
+                          <p>Introducing Ultralytics YOLOv8, the latest version of the acclaimed real-time object detection and image segmentation model. YOLOv8 is built on cutting-edge advancements in deep learning and computer vision, offering unparalleled performance in terms of speed and accuracy. Its streamlined design makes it suitable for various applications and easily adaptable to different hardware platforms, from edge devices to cloud APIs.</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="row-services mt-4">
+                    <div class="col-services">
+                        <div class="project_info">
+                            <h3 class="text-primary">Pose Detection</h3>
+                            <p>MediaPipe Pose is a ML solution for high-fidelity body pose tracking, inferring 33 3D landmarks and background segmentation mask on the whole body from RGB video frames utilizing our BlazePose research that also powers the ML Kit Pose Detection API. </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endblock %}

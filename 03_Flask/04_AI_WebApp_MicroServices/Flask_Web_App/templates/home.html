@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+        {% block header %}
+          <header style="height: 100vh;">
+        {% endblock %}
+          {% block section %}
+            <section>
+                <div class="container py-5">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-12 col-lg-6 mt-5">
+                            <h1 class="display-4 fw-bold" id="header-text">AI Web Application</h1>
+                            <p class="lead">Face Analysis, Object Detection, Pose Detection</p>
+                            <a class="text-white" style="text-decoration: none;" href="/login"><button class="btn btn-primary px-5 py-3 d-inline-block mt-4 fw-bold">Sign Up</button></a>
+                        </div>
+                        <div class="col-12 col-lg-6 mt-4">
+                            <img src="{{ url_for('static', filename='/img/image1.jpg') }}" class="img-fluid" id="header-image" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+          {% endblock %}
+

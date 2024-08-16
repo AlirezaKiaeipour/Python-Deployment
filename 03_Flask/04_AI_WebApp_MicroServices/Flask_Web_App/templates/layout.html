@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alireza Kiaeipour">
+        <meta name="description" content="Face Analysis website">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" type="image/x-icon">
+        <title>AI App</title>
+        <style>
+          .flash_login {
+              --dynamic-display:
+              {{ flash_login }}
+          }
+          .flash_register{
+              --dynamic-display:
+              {{ flash_register }}
+          }
+          .flash_update_admin{
+              --dynamic-display:
+              {{ flash_update_admin }}
+          }
+              
+          </style>
+    </head>
+    <body>
+        {% block header %}
+        {% endblock %}
+            <nav class="navbar navbar-expand-lg navbar-light pt-2">
+                <div class="container">
+                  <a class="navbar-brand px-4 py-2" href="/login">Login</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <li class="nav-item ms-2">
+                        <a class="nav-link active fs-5" aria-current="page" href="/home">Home</a>
+                      </li>
+                      <li class="nav-item ms-2">
+                        <a class="nav-link fs-5" href="/services">Services</a>
+                      </li>
+                      <li class="nav-item ms-2">
+                        <a class="nav-link fs-5" href="#">Contact</a>
+                      </li>
+                      <li class="nav-item ms-2">
+                        <a class="nav-link fs-5" href="/blog">Blog</a>
+                      </li>
+                      <li class="nav-item ms-2">
+                        <a class="nav-link fs-5" href="/login">Login</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+            {% block section %}
+            {% endblock %}
+        </header>
+
+        <script src="{{ url_for('static', filename='/js/bootstrap.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+FROM python
+
+WORKDIR /app
+
+# Upgrade pip and install requirements
+COPY . /app
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+ENV FLASK_APP = app.py
+
+# Run
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "5000"]

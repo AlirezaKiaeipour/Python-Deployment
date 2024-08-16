@@ -1,0 +1,13 @@
+flask
+sqlmodel
+numpy
+psycopg2
+opencv-python
+bcrypt
+python-dotenv
+scikit-image
+pillow
+onnxruntime
+pyyaml
+fastapi
+uvicorn

@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+        {% block header %}
+            <header class="height-login">
+        {% endblock %}
+            {% block section %}
+            <section class="d-flex justify-content-center align-items-center login-page">
+                <div class="row box-area px-4">
+                    <div class="col-md-5 align-items-center left-box border rounded-5 bg-white shadow p-4 m-2 mx-4">
+                        <div class="header-login-text mb-4">
+                            <form method="post" action="/login-admin">
+                                <h2>Admin Login</h2>
+                                <div class="input-group mb-3 mt-4">
+                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="email_login_admin" placeholder="Enter your Email">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <input type="password" class="form-control form-control-lg bg-light fs-6" name="password_login_admin" placeholder="Enter your Password">
+                                </div>
+                                <div class="input-group mb-5 d-flex justify-content-between">
+                                    <div class="form-checkbox mt-2">
+                                        <input type="checkbox" class="form-check-input" id="form-checkbox">
+                                        <label for="form-checkbox" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                                    </div>
+                                    <div class="forgot mt-2">
+                                        <small><a href="#">Forgot Password?</a></small>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
+                                </div>
+                                {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% if messages %}
+                                        {% for category, message in messages %}
+                                            <div style="display: var(--dynamic-display);" class="alert alert-{{ category }} flash_login">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endblock %}

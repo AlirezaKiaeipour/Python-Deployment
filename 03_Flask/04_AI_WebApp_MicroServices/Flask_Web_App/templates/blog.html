@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+        {% block header %}
+          <header class="height-service">
+        {% endblock %}
+          {% block section %}
+            <section class="project_box" id="project">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-primary fs-1 fw-bold mb-3 text-center">News</h2>
+                    </div>
+                </div>
+                {% for post_id, title, content, timestamp, first_name, last_name in posts %}
+                <div class="card-blog">
+                    <div class="card-body mt-4">
+                      <h5 class="card-title text-primary py-2">{{ title }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{ first_name }} {{ last_name }}</h6>
+                      <span class="card-subtitle mb-2 text-muted fw-bold" style="font-size: 14px;">{{ timestamp }}</span>
+                      <p class="card-text mt-2">{{ content }}</p>
+                      <a href={{ url_for("blog_show",id=post_id) }}><button type="submit" class="btn btn-primary mt-2 fs-6 btn-lg">Read more ...</button></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+            {% endblock %}
