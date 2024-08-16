@@ -19,9 +19,6 @@ This is a web application that utilizes the models of DeepFace for face analysis
 ## Docker compose
 
   ```bash
-  docker build -t ai_web_app .
-  ```
-  ```bash
   docker compose up -d
   ```
   ```bash
