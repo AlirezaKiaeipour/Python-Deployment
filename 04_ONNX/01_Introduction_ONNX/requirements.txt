@@ -1,0 +1,13 @@
+numpy
+pillow
+onnx
+onnxscript
+skl2onnx
+tf2onnx
+onnxruntime
+onnxruntime-gpu
+ultralytics
+torch
+torchvision
+tensorflow
+scikit-learn
