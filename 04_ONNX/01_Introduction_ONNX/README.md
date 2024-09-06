@@ -11,3 +11,5 @@
   * Keras
   * TensorFlow
   * Torch
+  * YOLO
+* Load & use ONNX models
